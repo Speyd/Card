@@ -7,6 +7,10 @@ Card::Card(TYPES_CARD typeCard, std::string nameType, bool _trumpCard, CARD_COND
 	condition{ _condition }
 {}
 
+Card::Card(Card&& card) noexcept:
+	Card{ card.infoType->type, card.infoType->nameType, card.isTrump, card.condition}
+{}
+
 Card::~Card()
 {
 	if (this->infoType != nullptr)

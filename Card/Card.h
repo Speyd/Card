@@ -16,6 +16,8 @@ public:
 	Card(TYPES_CARD typeCard, std::string nameType,
 		bool _trumpCard, CARD_CONDITION _condition = CARD_CONDITION::UNTOUCHED);
 
+	Card(Card&& card) noexcept;
+
 	virtual ~Card();
 
 

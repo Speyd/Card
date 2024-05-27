@@ -9,17 +9,29 @@
 #include "Diamonds.h"
 #include "Hearts.h"
 #include "Spades.h"
+#include "Array.h"
 
 
 
 int main()
 {
-	Card* card = new Clubs{ SUITS::DIAMONDS, TYPES_CARD::ACE, "Ace"};
+	Array<Card*> array;
+	for (int i{ 0 }; i < 3; i++)
+	{
+		Card* card( new Clubs{ SUITS::DIAMONDS, TYPES_CARD(TYPES_CARD::SIX + i), "six" + std::to_string(i) });
+		array.addElement(&card);
+	}
 
-	std::cout << card->getSuitName() << std::endl;
-	std::cout << card->getTypeName() << std::endl;
-	std::cout << card->getTrump() << std::endl;
-	std::cout << card->getCondition() << std::endl;
+	for (int i{ 0 }; i < 3; i++)
+	{
+		std::cout << i + 1 << " Card: " << std::endl;
+		std::cout << array[i]->getSuitName() << std::endl;
+		std::cout << array[i]->getTypeName() << std::endl;
+		std::cout << array[i]->getTypeCard() << std::endl;
+		std::cout << array[i]->getTrump() << std::endl;
+		std::cout << array[i]->getCondition() << std::endl;
+		std::cout << std::endl;
+	}
 
 
 
