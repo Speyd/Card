@@ -1,0 +1,63 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <Filter Include="Исходные файлы">
+      <UniqueIdentifier>{4FC737F1-C7A5-4376-A066-2A32D752A2FF}</UniqueIdentifier>
+      <Extensions>cpp;c;cc;cxx;c++;cppm;ixx;def;odl;idl;hpj;bat;asm;asmx</Extensions>
+    </Filter>
+    <Filter Include="Файлы заголовков">
+      <UniqueIdentifier>{93995380-89BD-4b04-88EB-625FBE52EBFB}</UniqueIdentifier>
+      <Extensions>h;hh;hpp;hxx;h++;hm;inl;inc;ipp;xsd</Extensions>
+    </Filter>
+    <Filter Include="Файлы ресурсов">
+      <UniqueIdentifier>{67DA6AB6-F800-4c08-8B7A-83BB121AAD01}</UniqueIdentifier>
+      <Extensions>rc;ico;cur;bmp;dlg;rc2;rct;bin;rgs;gif;jpg;jpeg;jpe;resx;tiff;tif;png;wav;mfcribbon-ms</Extensions>
+    </Filter>
+    <Filter Include="Файлы заголовков\ENUMS">
+      <UniqueIdentifier>{b1ff1761-4166-4d0b-8d4c-dddc646e7123}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Файлы заголовков\Card">
+      <UniqueIdentifier>{32767b8a-cc3c-4ff5-b8b3-146f8b0d42aa}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Файлы заголовков\Card\Suits">
+      <UniqueIdentifier>{78a8d641-fd49-4b5b-8c46-4bf8b3e95051}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="main.cpp">
+      <Filter>Исходные файлы</Filter>
+    </ClCompile>
+    <ClCompile Include="Card.cpp">
+      <Filter>Исходные файлы</Filter>
+    </ClCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="CARD_CONDITION.h">
+      <Filter>Файлы заголовков\ENUMS</Filter>
+    </ClInclude>
+    <ClInclude Include="InfoTypeCard.h">
+      <Filter>Файлы заголовков\Card</Filter>
+    </ClInclude>
+    <ClInclude Include="TYPES_CARD.h">
+      <Filter>Файлы заголовков\Card</Filter>
+    </ClInclude>
+    <ClInclude Include="SUITS.h">
+      <Filter>Файлы заголовков\Card\Suits</Filter>
+    </ClInclude>
+    <ClInclude Include="Clubs.h">
+      <Filter>Файлы заголовков\Card\Suits</Filter>
+    </ClInclude>
+    <ClInclude Include="Diamonds.h">
+      <Filter>Файлы заголовков\Card\Suits</Filter>
+    </ClInclude>
+    <ClInclude Include="Hearts.h">
+      <Filter>Файлы заголовков\Card\Suits</Filter>
+    </ClInclude>
+    <ClInclude Include="Spades.h">
+      <Filter>Файлы заголовков\Card\Suits</Filter>
+    </ClInclude>
+    <ClInclude Include="Card.h">
+      <Filter>Файлы заголовков\Card</Filter>
+    </ClInclude>
+  </ItemGroup>
+</Project>
