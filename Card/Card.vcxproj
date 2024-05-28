@@ -130,6 +130,7 @@
     <ClCompile Include="Array.cpp" />
     <ClCompile Include="Card.cpp" />
     <ClCompile Include="main.cpp" />
+    <ClCompile Include="MenuCreatCard.cpp" />
     <ClCompile Include="TemplateTypeArray.cpp" />
   </ItemGroup>
   <ItemGroup>
@@ -137,10 +138,16 @@
     <ClInclude Include="Card.h" />
     <ClInclude Include="CARD_CONDITION.h" />
     <ClInclude Include="Clubs.h" />
+    <ClInclude Include="ClubsCreator.h" />
+    <ClInclude Include="Creator.h" />
     <ClInclude Include="Diamonds.h" />
+    <ClInclude Include="DiamondsCreator.h" />
     <ClInclude Include="Hearts.h" />
+    <ClInclude Include="HeartsCreator.h" />
     <ClInclude Include="InfoTypeCard.h" />
+    <ClInclude Include="MenuCreatCard.h" />
     <ClInclude Include="Spades.h" />
+    <ClInclude Include="SpadesCreator.h" />
     <ClInclude Include="SUITS.h" />
     <ClInclude Include="TYPES_CARD.h" />
   </ItemGroup>

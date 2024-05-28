@@ -10,6 +10,7 @@
 #include "Hearts.h"
 #include "Spades.h"
 #include "Array.h"
+#include "MenuCreatCard.h"
 
 
 
@@ -18,8 +19,7 @@ int main()
 	Array<Card*> array;
 	for (int i{ 0 }; i < 3; i++)
 	{
-		Card* card( new Clubs{ SUITS::DIAMONDS, TYPES_CARD(TYPES_CARD::SIX + i), "six" + std::to_string(i) });
-		array.addElement(&card);
+		array.addElement(MenuCreatCard::setCard(SUITS::CLUBS, SUITS::CLUBS, TYPES_CARD(TYPES_CARD::SIX + i), "six" + std::to_string(i) ));
 	}
 
 	for (int i{ 0 }; i < 3; i++)

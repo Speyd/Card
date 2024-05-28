@@ -55,10 +55,10 @@ void Array<T>::changeSize(int newSize)
 }
 
 template<typename T>
-void Array<T>::addElement(T* element)
+void Array<T>::addElement(T element)
 {
 	changeSize(this->size + 1);
-	this->array[this->size - 1] = *element;
+	this->array[this->size - 1] = element;
 }
 
 template<typename T>
@@ -70,7 +70,7 @@ void Array<T>::addUniqueElement(T& element)
 			return;
 	}
 
-	addElement(&element);
+	addElement(element);
 }
 
 template<typename T>

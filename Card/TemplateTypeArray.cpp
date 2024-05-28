@@ -3,4 +3,3 @@
 #include "Card.h"
 
 template class Array<Card*>;
-//template class Array<Card*>

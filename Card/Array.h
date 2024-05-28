@@ -22,7 +22,7 @@ public:
 
 	void changeSize(int newSize);
 
-	void addElement(T* element);
+	void addElement(T element);
 
 	void addUniqueElement(T& element);
 
