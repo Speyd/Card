@@ -13,13 +13,31 @@
 #include "MenuCreatCard.h"
 #include "Menu.h"
 #include "Deck.h"
+#include "Player.h"
+
 
 
 
 int main()
 {
 
-	Deck* deck = Deck::creatDeckElement({ { TYPES_CARD::SIX, "Six"} });
+	Deck* deck = Deck::creatDeckElement({ { TYPES_CARD::SIX, "Six"},  { TYPES_CARD::SEVEN, "Seven"},  { TYPES_CARD::EIGHT, "Eight"} });
+	Player* player = Player::setPlayer("Player1");
+
+	player->setDeck()[0] = deck->getCard(0);
+	player->setDeck()[1] = deck->getCard(1);
+	player->setDeck()[2] = deck->getCard(2);
+	player->setDeck()[3] = deck->getCard(3);
+
+
+	std::cout << player->getName() << std::endl;
+	for (int i{ 0 }; i < player->getSizeDeck(); i++)
+	{
+		std::cout << player->getCardName(i) << std::endl;
+	}
+
+	std::cout << std::endl << std::endl;
+
 	deck->outDeck();
 	Array<Card*> array;
 	for (int i{ 0 }; i < 3; i++)

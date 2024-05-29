@@ -1,6 +1,4 @@
 #include "Array.h"
-#include "vector"
-#include <unordered_map>
 
 template<typename T>
 Array<T>::Array() :

@@ -34,6 +34,9 @@
     <Filter Include="Файлы заголовков\Menu">
       <UniqueIdentifier>{273f2e63-b0fe-43fe-9ad0-4892fabfb6be}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Файлы заголовков\Player">
+      <UniqueIdentifier>{0e829c52-737e-4beb-9ece-41b8db5758fd}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="main.cpp">
@@ -58,6 +61,9 @@
       <Filter>Исходные файлы</Filter>
     </ClCompile>
     <ClCompile Include="Deck.cpp">
+      <Filter>Исходные файлы</Filter>
+    </ClCompile>
+    <ClCompile Include="Player.cpp">
       <Filter>Исходные файлы</Filter>
     </ClCompile>
   </ItemGroup>
@@ -118,6 +124,12 @@
     </ClInclude>
     <ClInclude Include="Deck.h">
       <Filter>Файлы заголовков</Filter>
+    </ClInclude>
+    <ClInclude Include="Player.h">
+      <Filter>Файлы заголовков\Player</Filter>
+    </ClInclude>
+    <ClInclude Include="PASS_PLAYER.h">
+      <Filter>Файлы заголовков\Player</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>

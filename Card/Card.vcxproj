@@ -133,6 +133,7 @@
     <ClCompile Include="main.cpp" />
     <ClCompile Include="Menu.cpp" />
     <ClCompile Include="MenuCreatCard.cpp" />
+    <ClCompile Include="Player.cpp" />
     <ClCompile Include="TemplateTypeArray.cpp" />
     <ClCompile Include="TemplateTypeMenu.cpp" />
   </ItemGroup>
@@ -152,6 +153,8 @@
     <ClInclude Include="ItemMenu.h" />
     <ClInclude Include="Menu.h" />
     <ClInclude Include="MenuCreatCard.h" />
+    <ClInclude Include="PASS_PLAYER.h" />
+    <ClInclude Include="Player.h" />
     <ClInclude Include="Spades.h" />
     <ClInclude Include="SpadesCreator.h" />
     <ClInclude Include="SUITS.h" />
