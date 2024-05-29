@@ -34,22 +34,13 @@ void Array<T>::changeSize(int newSize)
 	if (newSize == this->size)
 		return;
 
-	T* newArray = new T[this->size]{};
-	for (int i{ 0 }; i < this->size; i++)
-	{
-		newArray[i] = this->array[i];
-	}
-	delete[] this->array;
-
-
-	int minSize = std::min(this->size, newSize);
+	T* oldArray = this->array;
 	this->array = new T[newSize];
 
-	for (int i{ 0 }; i < minSize; i++)
+	for (int i{ 0 }; i < size; i++)
 	{
-		this->array[i] = newArray[i];
+		this->array[i] = oldArray[i];
 	}
-	delete[] newArray;
 
 	this->size = newSize;
 }

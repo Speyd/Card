@@ -11,6 +11,7 @@
 #include "Spades.h"
 #include "Array.h"
 #include "MenuCreatCard.h"
+#include "Menu.h"
 
 
 
@@ -32,7 +33,19 @@ int main()
 		std::cout << array[i]->getCondition() << std::endl;
 		std::cout << std::endl;
 	}
+	std::cout << std::endl << std::endl;
 
+	Menu<Card> menu{ "Choicer", "What card do you want to take?:", {{array[0]->getTypeName(), array[0]}, {array[1]->getTypeName(), array[1]}, {array[2]->getTypeName(), array[2]}} };
+
+	Card* card = &menu[menu.setChoicePlayer()];
+
+	std::cout << std::endl;
+	std::cout << card->getSuitName() << std::endl;
+	std::cout << card->getTypeName() << std::endl;
+	std::cout << card->getTypeCard() << std::endl;
+	std::cout << card->getTrump() << std::endl;
+	std::cout << card->getCondition() << std::endl;
+	std::cout << std::endl;
 
 
 	return 0;

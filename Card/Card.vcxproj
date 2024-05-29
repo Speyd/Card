@@ -130,8 +130,10 @@
     <ClCompile Include="Array.cpp" />
     <ClCompile Include="Card.cpp" />
     <ClCompile Include="main.cpp" />
+    <ClCompile Include="Menu.cpp" />
     <ClCompile Include="MenuCreatCard.cpp" />
     <ClCompile Include="TemplateTypeArray.cpp" />
+    <ClCompile Include="TemplateTypeMenu.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Array.h" />
@@ -145,6 +147,8 @@
     <ClInclude Include="Hearts.h" />
     <ClInclude Include="HeartsCreator.h" />
     <ClInclude Include="InfoTypeCard.h" />
+    <ClInclude Include="ItemMenu.h" />
+    <ClInclude Include="Menu.h" />
     <ClInclude Include="MenuCreatCard.h" />
     <ClInclude Include="Spades.h" />
     <ClInclude Include="SpadesCreator.h" />

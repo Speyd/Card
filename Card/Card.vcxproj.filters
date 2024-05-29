@@ -31,6 +31,9 @@
     <Filter Include="Исходные файлы\Creator">
       <UniqueIdentifier>{a384814b-0c1e-42db-b972-106a12a335d2}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Файлы заголовков\Menu">
+      <UniqueIdentifier>{273f2e63-b0fe-43fe-9ad0-4892fabfb6be}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="main.cpp">
@@ -47,6 +50,12 @@
     </ClCompile>
     <ClCompile Include="MenuCreatCard.cpp">
       <Filter>Исходные файлы\Creator</Filter>
+    </ClCompile>
+    <ClCompile Include="Menu.cpp">
+      <Filter>Исходные файлы</Filter>
+    </ClCompile>
+    <ClCompile Include="TemplateTypeMenu.cpp">
+      <Filter>Исходные файлы</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -97,6 +106,12 @@
     </ClInclude>
     <ClInclude Include="MenuCreatCard.h">
       <Filter>Файлы заголовков\Creator</Filter>
+    </ClInclude>
+    <ClInclude Include="Menu.h">
+      <Filter>Файлы заголовков\Menu</Filter>
+    </ClInclude>
+    <ClInclude Include="ItemMenu.h">
+      <Filter>Файлы заголовков\Menu</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>
