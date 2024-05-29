@@ -12,15 +12,20 @@
 #include "Array.h"
 #include "MenuCreatCard.h"
 #include "Menu.h"
+#include "Deck.h"
 
 
 
 int main()
 {
+
+	Deck* deck = Deck::creatDeckElement({ { TYPES_CARD::SIX, "Six"} });
+	deck->outDeck();
 	Array<Card*> array;
 	for (int i{ 0 }; i < 3; i++)
 	{
-		array.addElement(MenuCreatCard::setCard(SUITS::CLUBS, SUITS::CLUBS, TYPES_CARD(TYPES_CARD::SIX + i), "six" + std::to_string(i) ));
+		array.addElement(deck->getBeginCard());
+		deck->deleteBeginCard();
 	}
 
 	for (int i{ 0 }; i < 3; i++)

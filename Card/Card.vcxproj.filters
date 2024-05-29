@@ -57,6 +57,9 @@
     <ClCompile Include="TemplateTypeMenu.cpp">
       <Filter>Исходные файлы</Filter>
     </ClCompile>
+    <ClCompile Include="Deck.cpp">
+      <Filter>Исходные файлы</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="CARD_CONDITION.h">
@@ -112,6 +115,9 @@
     </ClInclude>
     <ClInclude Include="ItemMenu.h">
       <Filter>Файлы заголовков\Menu</Filter>
+    </ClInclude>
+    <ClInclude Include="Deck.h">
+      <Filter>Файлы заголовков</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>

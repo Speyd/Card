@@ -36,5 +36,7 @@ public:
 
 	std::string getTypeName() const;
 
+	std::string getName() const;
+
 };
 

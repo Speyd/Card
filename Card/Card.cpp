@@ -40,3 +40,8 @@ std::string Card::getTypeName() const
 {
 	return this->getSuitName() + " " + this->infoType->nameType;
 }
+
+std::string Card::getName() const
+{
+	return this->infoType->nameType;
+}

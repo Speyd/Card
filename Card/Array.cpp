@@ -34,15 +34,16 @@ void Array<T>::changeSize(int newSize)
 	if (newSize == this->size)
 		return;
 
-	T* oldArray = this->array;
-	this->array = new T[newSize];
-
-	for (int i{ 0 }; i < size; i++)
+	T* newArray = new T[newSize];
+	const int minSize = std::min(size, newSize);
+	for (int i = 0; i < minSize; ++i) 
 	{
-		this->array[i] = oldArray[i];
+		newArray[i] = array[i];
 	}
 
-	this->size = newSize;
+	delete[] array;
+	array = newArray;
+	size = newSize;
 }
 
 template<typename T>
