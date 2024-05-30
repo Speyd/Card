@@ -14,6 +14,7 @@
 #include "Menu.h"
 #include "Deck.h"
 #include "Player.h"
+#include "GiverCards.h"
 
 
 
@@ -24,10 +25,8 @@ int main()
 	Deck* deck = Deck::creatDeckElement({ { TYPES_CARD::SIX, "Six"},  { TYPES_CARD::SEVEN, "Seven"},  { TYPES_CARD::EIGHT, "Eight"} });
 	Player* player = Player::setPlayer("Player1");
 
-	player->setDeck()[0] = deck->getCard(0);
-	player->setDeck()[1] = deck->getCard(1);
-	player->setDeck()[2] = deck->getCard(2);
-	player->setDeck()[3] = deck->getCard(3);
+	GiverCards giver{ deck };
+	giver.firstDistributionCardsPlayers(player);
 
 
 	std::cout << player->getName() << std::endl;

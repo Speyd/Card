@@ -23,6 +23,8 @@ public:
 
 	void addElement(T element);
 
+	void addElementToNullptr(T element);
+
 	void addUniqueElement(T& element);
 
 	void deleteElement(T& element);
@@ -54,5 +56,6 @@ public:
 	const T& operator [](const int index) const;
 
 	const int getSize() const;
+
 };
 

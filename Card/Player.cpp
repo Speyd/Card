@@ -5,7 +5,7 @@ short Player::amountPlayer{ 0 };
 Player::Player(const std::string& _name) :
 	name{ _name },
 	playerCondition{ PASS_PLAYER::PASS_NOT },
-	deck{ new Array<Card*>{ 6 } }
+	deck{ new Array<Card*> }
 {
 	amountPlayer++;
 }
@@ -60,7 +60,7 @@ void Player::setPlayerCondition(const PASS_PLAYER newPlayerCondition)
 
 std::string Player::getCardName(const short index) const
 {
-	return getCard(index) != nullptr ? getCard(index)->getName() : "ERROR_CARD";
+	return getCard(index) != nullptr ? getCard(index)->getTypeName() : "ERROR_CARD";
 }
 
 const PASS_PLAYER Player::getPlayerCondition() const

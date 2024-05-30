@@ -52,6 +52,21 @@ void Array<T>::addElement(T element)
 }
 
 template<typename T>
+void Array<T>::addElementToNullptr(T element)
+{
+	for(int i{ 0 }; i < this->size; i++)
+	{
+		if(this->array[i] == nullptr)
+		{
+			this->array[i] = element;
+			return;
+		}
+	}
+
+	addElement(element);
+}
+
+template<typename T>
 void Array<T>::addUniqueElement(T& element)
 {
 	for (int i{ 0 }; i < this->size; i++)
