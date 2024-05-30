@@ -129,6 +129,7 @@
   <ItemGroup>
     <ClCompile Include="Array.cpp" />
     <ClCompile Include="Card.cpp" />
+    <ClCompile Include="ChoicingCard.cpp" />
     <ClCompile Include="Deck.cpp" />
     <ClCompile Include="GiverCards.cpp" />
     <ClCompile Include="main.cpp" />
@@ -142,6 +143,7 @@
     <ClInclude Include="Array.h" />
     <ClInclude Include="Card.h" />
     <ClInclude Include="CARD_CONDITION.h" />
+    <ClInclude Include="ChoicingCard.h" />
     <ClInclude Include="Clubs.h" />
     <ClInclude Include="ClubsCreator.h" />
     <ClInclude Include="Creator.h" />

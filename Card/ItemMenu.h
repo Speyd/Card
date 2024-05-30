@@ -5,6 +5,6 @@ template<typename T>
 struct ItemMenu
 {
 	std::string textSelection{};
-	T object;
+	std::shared_ptr<T> object;
 
 };

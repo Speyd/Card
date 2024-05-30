@@ -6,24 +6,7 @@ std::vector<std::string> Menu<T>::textError;
 template<typename T>
 Menu<T>::Menu(const std::string& _nameMenu,
 	const std::string& _textQuestion,
-	std::vector<ItemMenu<T&>>&& _itemsMenu,
-	std::vector<pointStrigFun> _additionalText) :
-
-	choice{ 1 },
-	nameMenu{ _nameMenu },
-	textQuestion{ _textQuestion },
-	additionalText{ _additionalText }
-{
-	for(auto item : _itemsMenu)
-	{
-		itemsMenu.push_back({ item.textSelection, &item.object });
-	}
-}
-
-template<typename T>
-Menu<T>::Menu(const std::string& _nameMenu,
-	const std::string& _textQuestion,
-	std::vector<ItemMenu<T*>>&& _itemsMenu,
+	std::vector<ItemMenu<T>>&& _itemsMenu,
 	std::vector<pointStrigFun> _additionalText) :
 
 	choice{ 1 },
@@ -32,6 +15,21 @@ Menu<T>::Menu(const std::string& _nameMenu,
 	itemsMenu{ _itemsMenu },
 	additionalText{ _additionalText }
 {}
+
+template<typename T>
+Menu<T>::Menu(const std::string& _nameMenu,
+	const std::string& _textQuestion,
+	std::vector<ItemMenu<T>>& _itemsMenu,
+	std::vector<pointStrigFun> _additionalText) :
+
+	choice{ 1 },
+	nameMenu{ _nameMenu },
+	textQuestion{ _textQuestion },
+	itemsMenu{ _itemsMenu },
+	additionalText{ _additionalText }
+{}
+
+
 
 template<typename T>
 void Menu<T>::inputItemMenu()
@@ -101,5 +99,5 @@ T& Menu<T>::operator[](const short _choice)					//TODO: With nullptr checker
 	if constexpr (std::is_pointer<T>::value)
 		assert(this->itemsMenu[_choice].object != nullptr);
 
-	return *(this->itemsMenu[_choice].object);
+	return *(this->itemsMenu[_choice].object.get());
 }

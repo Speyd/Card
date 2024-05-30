@@ -36,12 +36,12 @@ TYPES_CARD Card::getTypeCard() const
 {
 	return this->infoType->type;
 }
-std::string Card::getTypeName() const
+std::string Card::getName() const
 {
 	return this->getSuitName() + " " + this->infoType->nameType;
 }
 
-std::string Card::getName() const
+std::string Card::getTypeName() const
 {
 	return this->infoType->nameType;
 }

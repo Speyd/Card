@@ -15,7 +15,7 @@
 #include "Deck.h"
 #include "Player.h"
 #include "GiverCards.h"
-
+#include "ChoicingCard.h"
 
 
 
@@ -57,9 +57,21 @@ int main()
 	}
 	std::cout << std::endl << std::endl;
 
-	Menu<Card> menu{ "Choicer", "What card do you want to take?:", {{array[0]->getTypeName(), array[0]}, {array[1]->getTypeName(), array[1]}, {array[2]->getTypeName(), array[2]}} };
+	/*Array<Card*> temp;
+	temp.addArrayElement(&player->setDeck());
 
-	Card* card = &menu[menu.setChoicePlayer()];
+	ChoicingCard choicer
+	{
+		"Choicer",
+		"What card do you want to take?", "Pass move",
+		&temp
+	};*/
+
+	//std::cout << choicer.setCard()->getName();
+
+	Menu<Card*> menu{ "Choicer", "What card do you want to take?:", {{array[0]->getTypeName(), std::make_shared<Card*>(array[0])}, {array[1]->getTypeName(), std::make_shared<Card*>(array[1])}, {array[2]->getTypeName(), std::make_shared<Card*>(array[2])}} };
+
+	Card* card = menu[menu.setChoicePlayer()];
 
 	std::cout << std::endl;
 	std::cout << card->getSuitName() << std::endl;

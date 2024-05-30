@@ -4,4 +4,3 @@
 #include <memory>
 
 template class Menu<Card*>;
-template class Menu<Card>;
