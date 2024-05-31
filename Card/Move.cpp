@@ -67,6 +67,38 @@ SELECTING_ADDITIONAL_CARD Move::suspicionThrow(const std::string& nameMenu, cons
 }
 
 
+RESULT_CHECK_SELECTED Move::checkSelectedCard(Card* selectedCard, Array<Card*>* allCards, Player* attackPlayer)
+{
+	if (selectedCard != nullptr)		//TODO: Если атакующий бросил карту
+	{
+		if (GameHelper::boolMenu(
+			"Your choice",
+			"Do you really want to attack with this card?",
+			{ { "Yes", std::make_shared<bool>(true) }, { "No", std::make_shared<bool>(false) } })
+			== true)
+		{
+			if (checkTrueCardAttack(selectedCard, *allCards) == true)
+				successfulAttack(attackPlayer, selectedCard);
+			else
+				Menu<bool>::textError.push_back("The card you threw does not match the data!");
+		}
+		return RESULT_CHECK_SELECTED::NEW_SELECTION;
+	}
+	else if (selectedCard == nullptr && allAttackCardPlayer->size() > 0)				//TODO: Если атакующий захотел пропустить ход и количество атакующих карт на столе больше 0
+	{
+		allCards->clear();
+		return RESULT_CHECK_SELECTED::FINISH_SELECTION;
+			GameHelper::checkConditionCard(allAttackCardPlayer, attackPlayer, CARD_CONDITION::UNTOUCHED);
+	}
+	else if (selectedCard == nullptr && allAttackCardPlayer->size() == 0)		//TODO: Если текущий атакующий пропустил ход но количество атакующих карт на столе равно 0
+	{
+		Menu<Card*>::textError.push_back("You need to attack with at least one card to exit!");
+		return RESULT_CHECK_SELECTED::PAVE_SELECTION;
+	}
+
+	return RESULT_CHECK_SELECTED::NEW_SELECTION;
+}
+
 void Move::successfulAttack(Player* attackPlayer, Card* selectedCard)
 {
 	selectedCard->setCondition(CARD_CONDITION::UNTOUCHED);
@@ -74,6 +106,7 @@ void Move::successfulAttack(Player* attackPlayer, Card* selectedCard)
 	attackPlayer->setPlayerCondition(PASS_PLAYER::PASS_NOT);
 	allAttackCardPlayer->push_back(selectedCard);
 }
+
 
 RESULT_MOVE Move::setChoiceAttackCard(Player* attackPlayer, const int amountCardDefendPlayer,
 	const std::string& nameAttacker, const std::string& nameDefender)
@@ -106,30 +139,14 @@ RESULT_MOVE Move::setChoiceAttackCard(Player* attackPlayer, const int amountCard
 
 
 
-
-		if (selectedCard != nullptr)		//TODO: Если атакующий бросил карту
+		switch (checkSelectedCard(selectedCard, allCards, attackPlayer))
 		{
-			if (GameHelper::boolMenu(
-				"Your choice", 
-				"Do you really want to attack with this card?",
-				{ { "Yes", std::make_shared<bool>(true) }, { "No", std::make_shared<bool>(false) } })
-				== true)
-			{
-				if (checkTrueCardAttack(selectedCard, *allCards) == true)
-					successfulAttack(attackPlayer, selectedCard);
-				else
-					Menu<bool>::textError.push_back("The card you threw does not match the data!");
-			}
-		}
-		else if (selectedCard == nullptr && allAttackCardPlayer->size() > 0)				//TODO: Если атакующий захотел пропустить ход и количество атакующих карт на столе больше 0
-		{
-			allCards->clear();
-			return GameHelper::checkConditionCard(allAttackCardPlayer, attackPlayer, CARD_CONDITION::UNTOUCHED);
-		}
-		else if (selectedCard == nullptr && allAttackCardPlayer->size() == 0)		//TODO: Если текущий атакующий пропустил ход но количество атакующих карт на столе равно 0
-		{
-			Menu<Card*>::textError.push_back("You need to attack with at least one card to exit!");
+		case RESULT_CHECK_SELECTED::PAVE_SELECTION:
 			continue;
+			break;
+		case RESULT_CHECK_SELECTED::FINISH_SELECTION:
+			return GameHelper::checkConditionCard(allAttackCardPlayer, attackPlayer, CARD_CONDITION::UNTOUCHED);
+			break;
 		}
 
 
@@ -151,6 +168,7 @@ RESULT_MOVE Move::setChoiceAttackCard(Player* attackPlayer, const int amountCard
 	allCards->clear();
 	if (attackPlayer->getSizeDeck() == 0)
 		attackPlayer->setPlayerCondition(PASS_PLAYER::PASS);
+
 	return RESULT_MOVE::SUCCESSFULLY;
 }
 
@@ -208,18 +226,11 @@ RESULT_MOVE Move::setChoiceDefendCard(Array<Card*>* defendDeck, const std::strin
 
 			defendCard = choicingDefendCard->setCard();
 
-		} while (
-			defendCard != nullptr
-
-			&&
-
-			GameHelper::boolMenu
-			(
+		} while (defendCard != nullptr && GameHelper::boolMenu(
 				"Your choice", 
 				"Do you really want to defend with this card?", 
 				{ {"Yes", std::make_shared<bool>(true)}, {"No", std::make_shared<bool>(false)} }
-			) == false
-		);
+			) == false);
 
 
 

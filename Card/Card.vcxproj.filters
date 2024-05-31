@@ -182,5 +182,8 @@
     <ClInclude Include="Move.h">
       <Filter>Файлы заголовков\Move</Filter>
     </ClInclude>
+    <ClInclude Include="RESULT_CHECK_SELECTED.h">
+      <Filter>Файлы заголовков\Move\Move_Enums</Filter>
+    </ClInclude>
   </ItemGroup>
 </Project>

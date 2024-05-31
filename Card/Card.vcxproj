@@ -168,6 +168,7 @@
     <ClInclude Include="Move.h" />
     <ClInclude Include="PASS_PLAYER.h" />
     <ClInclude Include="Player.h" />
+    <ClInclude Include="RESULT_CHECK_SELECTED.h" />
     <ClInclude Include="RESULT_MOVE.h" />
     <ClInclude Include="SELECTING_ADDITIONAL_CARD.h" />
     <ClInclude Include="Spades.h" />

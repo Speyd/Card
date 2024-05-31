@@ -13,6 +13,7 @@
 #include "PASS_PLAYER.h"
 #include "SELECTING_ADDITIONAL_CARD.h"
 #include "RESULT_MOVE.h"
+#include "RESULT_CHECK_SELECTED.h"
 
 class GameManager;
 
@@ -28,6 +29,8 @@ private:
 	static bool checkTookCards(Array<Card*>* defendDeck);
 
 	static void changeConditionAttackCards(CARD_CONDITION changeType);
+
+	static RESULT_CHECK_SELECTED checkSelectedCard(Card* selectedCard, Array<Card*>* allCards, Player* attackPlayer);
 
 	static void successfulAttack(Player* attackPlayer, Card* selectedCard);
 
