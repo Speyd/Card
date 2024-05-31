@@ -1,5 +1,9 @@
 #include "Move.h"
 
+
+Array<Card*>* Move::allDefendCardPlayer = nullptr;
+std::vector<Card*>* Move::allAttackCardPlayer = nullptr;
+
 bool Move::checkTrueCardAttack(Card* card, Array<Card*>& allAttackCardPlayer)
 {
 	if (allAttackCardPlayer.getSize() == 0)
@@ -61,6 +65,15 @@ SELECTING_ADDITIONAL_CARD Move::suspicionThrow(const std::string& nameMenu, cons
 	return SELECTING_ADDITIONAL_CARD::CONTINUE;
 }
 
+
+void Move::successfulAttack(Player* attackPlayer, Card* selectedCard)
+{
+	selectedCard->setCondition(CARD_CONDITION::UNTOUCHED);
+	attackPlayer->setDeck().discardElement(selectedCard);
+	attackPlayer->setPlayerCondition(PASS_PLAYER::PASS_NOT);
+	allAttackCardPlayer->push_back(selectedCard);
+}
+
 RESULT_MOVE Move::setChoiceAttackCard(Player* attackPlayer, const int amountCardDefendPlayer,
 	const std::string& nameAttacker, const std::string& nameDefender)
 {
@@ -86,32 +99,32 @@ RESULT_MOVE Move::setChoiceAttackCard(Player* attackPlayer, const int amountCard
 			attackPlayer->getDeck(),
 			std::vector<pointStrigFun>{ &GameHelper::getSuitGame,& GameHelper::getAmountCardsGeneralDeck}
 		};
-		Card* tempCard = choicingAttackCard->setCard();
+		Card* selectedCard = choicingAttackCard->setCard();
 
 
 
 
 
-		if (tempCard != nullptr)		//TODO: Если атакующий бросил карту
+		if (selectedCard != nullptr)		//TODO: Если атакующий бросил карту
 		{
-			if (GameHelper::boolMenu("Your choice", "Do you really want to attack with this card?", { {"Yes", true}, {"No", false} }) == true)
+			if (GameHelper::boolMenu(
+				"Your choice", 
+				"Do you really want to attack with this card?",
+				{ { "Yes", std::make_shared<bool>(true) }, { "No", std::make_shared<bool>(false) } })
+				== true)
 			{
-				if (checkTrueCardAttack(tempCard, *allCards) == true)
-				{
-					attackPlayer->setDeck().discardElement(tempCard);
-					tempCard->setCondition(CARD_CONDITION::UNTOUCHED);
-					attackPlayer->setPlayerCondition(PASS_PLAYER::PASS_NOT);
-				}
+				if (checkTrueCardAttack(selectedCard, *allCards) == true)
+					successfulAttack(attackPlayer, selectedCard);
 				else
 					Menu<bool>::textError.push_back("The card you threw does not match the data!");
 			}
 		}
-		else if (tempCard == nullptr && allAttackCardPlayer->size() > 0)				//TODO: Если атакующий захотел пропустить ход и количество атакующих карт на столе больше 0
+		else if (selectedCard == nullptr && allAttackCardPlayer->size() > 0)				//TODO: Если атакующий захотел пропустить ход и количество атакующих карт на столе больше 0
 		{
 			allCards->clear();
 			return GameHelper::checkConditionCard(allAttackCardPlayer, attackPlayer, CARD_CONDITION::UNTOUCHED);
 		}
-		else if (tempCard == nullptr && allAttackCardPlayer->size() == 0)		//TODO: Если текущий атакующий пропустил ход но количество атакующих карт на столе равно 0
+		else if (selectedCard == nullptr && allAttackCardPlayer->size() == 0)		//TODO: Если текущий атакующий пропустил ход но количество атакующих карт на столе равно 0
 		{
 			Menu<Card*>::textError.push_back("You need to attack with at least one card to exit!");
 			continue;
@@ -123,7 +136,7 @@ RESULT_MOVE Move::setChoiceAttackCard(Player* attackPlayer, const int amountCard
 			"Your choice",
 			"Do you want to throw another card?",
 			"You need to attack with at least one card to exit!",
-			{ {"Yes", true}, {"No", false} }) == SELECTING_ADDITIONAL_CARD::EXIT)
+			{ {"Yes", std::make_shared<bool>(true)}, {"No", std::make_shared<bool>(false)} }) == SELECTING_ADDITIONAL_CARD::EXIT)
 		{
 			break;
 		}
@@ -138,7 +151,6 @@ RESULT_MOVE Move::setChoiceAttackCard(Player* attackPlayer, const int amountCard
 		attackPlayer->setPlayerCondition(PASS_PLAYER::PASS);
 	return RESULT_MOVE::SUCCESSFULLY;
 }
-
 
 
 
@@ -182,11 +194,30 @@ RESULT_MOVE Move::setChoiceDefendCard(Array<Card*>* defendDeck, const std::strin
 			std::vector<pointStrigFun>{ &GameHelper::getSuitGame,& GameHelper::getAmountCardsGeneralDeck}
 		};
 
+
 		do
 		{
-			Menu<Card*>::textError.push_back(GameHelper::getTextForDefendPlayer(allAttackCardPlayer, attackCard, "\033[1m" + nameAttaker + "\033[0m threw cards that need to be defended against"));
+			Menu<Card*>::textError.push_back(GameHelper::getTextForDefendPlayer
+			(
+				allAttackCardPlayer,
+				attackCard, 
+				"\033[1m" + nameAttaker + "\033[0m threw cards that need to be defended against")
+			);
+
 			defendCard = choicingDefendCard->setCard();
-		} while (defendCard != nullptr && GameHelper::boolMenu("Your choice", "Do you really want to defend with this card?", { { "Yes", true}, { "No", false } }) == false);
+
+		} while (
+			defendCard != nullptr
+
+			&&
+
+			GameHelper::boolMenu
+			(
+				"Your choice", 
+				"Do you really want to defend with this card?", 
+				{ {"Yes", std::make_shared<bool>(true)}, {"No", std::make_shared<bool>(false)} }
+			) == false
+		);
 
 
 
@@ -197,11 +228,12 @@ RESULT_MOVE Move::setChoiceDefendCard(Array<Card*>* defendDeck, const std::strin
 			if (attackCard != *allAttackCardPlayer->begin())attackCard--;
 
 			if (defendCard == nullptr &&
-				GameHelper::boolMenu(
+				GameHelper::boolMenu
+				(
 					"Your choice",
 					"Do you want to take the card (You may not be able to beat the attacker)?",
-					{ {"Yes", true}, {"No", false} })
-				== true)
+					{ {"Yes", std::make_shared<bool>(true)}, {"No", std::make_shared<bool>(false)} }
+				)== true)
 			{
 				unseccessfulDefense(defendDeck);
 				return RESULT_MOVE::UNSUCCESSFUL;

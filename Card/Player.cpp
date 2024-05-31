@@ -18,7 +18,7 @@ Player::~Player()
 
 Player* Player::setPlayer(const std::string& _name)
 {
-	if (amountPlayer < 1)				//TODO: GameManager::getMaxAmountPlayer() גלוסעמ 1
+	if (amountPlayer < 2)				//TODO: GameManager::getMaxAmountPlayer() גלוסעמ 1
 		return new Player{ _name };
 	else
 	{

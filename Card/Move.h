@@ -3,7 +3,9 @@
 #include <sstream>
 #include <vector>
 //#include "GameManager.h"
+#include "GameHelper.h"
 #include "Player.h"
+#include "Menu.h"
 #include "ChoicingCard.h"
 #include "DefendInitialization.h"
 
@@ -24,6 +26,8 @@ private:
 	static bool checkTookCards(Array<Card*>* defendDeck);
 
 	static void changeConditionAttackCards(CARD_CONDITION changeType);
+
+	static void successfulAttack(Player* attackPlayer, Card* selectedCard);
 
 	static void successfulDefense(Card* attackCard, Card* defendCard, Array<Card*>* defendDeck);
 

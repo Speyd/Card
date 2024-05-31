@@ -94,10 +94,7 @@ void Menu<T>::addErrorText(std::string _textError)
 template<typename T>
 T& Menu<T>::operator[](const short _choice)
 {
-
 	assert(_choice >= 0 && choice < this->itemsMenu.size());
-	if constexpr (std::is_pointer<T>::value)
-		assert(this->itemsMenu[_choice].object != nullptr);
 
 	return *(this->itemsMenu[_choice].object.get());
 }

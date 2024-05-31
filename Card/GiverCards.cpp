@@ -23,7 +23,7 @@ void GiverCards::firstDistributionCardsPlayers(Player* player)
 {
 	if (this->generalDeck == nullptr) return;
 
-	short averageAmountCard = this->generalDeck->getFullAmountCard() / 1;
+	short averageAmountCard = this->generalDeck->getFullAmountCard() / 2;
 	averageAmountCard = averageAmountCard == 0 ? 1 : averageAmountCard;
 	averageAmountCard = averageAmountCard < 6 ? averageAmountCard : 6;
 

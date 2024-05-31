@@ -132,6 +132,7 @@
     <ClCompile Include="ChoicingCard.cpp" />
     <ClCompile Include="Deck.cpp" />
     <ClCompile Include="DefendInitialization.cpp" />
+    <ClCompile Include="GameHelper.cpp" />
     <ClCompile Include="GiverCards.cpp" />
     <ClCompile Include="main.cpp" />
     <ClCompile Include="Menu.cpp" />
@@ -154,6 +155,7 @@
     <ClInclude Include="DefendInitialization.h" />
     <ClInclude Include="Diamonds.h" />
     <ClInclude Include="DiamondsCreator.h" />
+    <ClInclude Include="GameHelper.h" />
     <ClInclude Include="GiverCards.h" />
     <ClInclude Include="Hearts.h" />
     <ClInclude Include="HeartsCreator.h" />

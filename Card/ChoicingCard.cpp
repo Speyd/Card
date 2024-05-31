@@ -20,7 +20,7 @@ std::vector<ItemMenu<Card*>> ChoicingCard::setItemsMenu(const Array<Card*>* play
 		tempItemMenu.push_back({ (*player)[i]->getName(), std::make_shared<Card*>((*player)[i]) });
 	}
 
-	tempItemMenu.push_back({ lastTextChoice, nullptr });
+	tempItemMenu.push_back({ lastTextChoice, std::make_shared<Card*>(nullptr) });
 
 	return tempItemMenu;
 }

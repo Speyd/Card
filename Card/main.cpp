@@ -16,6 +16,7 @@
 #include "Player.h"
 #include "GiverCards.h"
 #include "ChoicingCard.h"
+#include "Move.h"
 
 
 
@@ -24,9 +25,12 @@ int main()
 
 	Deck* deck = Deck::creatDeckElement({ { TYPES_CARD::SIX, "Six"},  { TYPES_CARD::SEVEN, "Seven"},  { TYPES_CARD::EIGHT, "Eight"} });
 	Player* player = Player::setPlayer("Player1");
+	Player* player1 = Player::setPlayer("Player2");
 
 	GiverCards giver{ deck };
 	giver.firstDistributionCardsPlayers(player);
+	giver.firstDistributionCardsPlayers(player1);
+
 
 
 	std::cout << player->getName() << std::endl;
@@ -37,15 +41,15 @@ int main()
 
 	std::cout << std::endl << std::endl;
 
-	deck->outDeck();
+	/*deck->outDeck();
 	Array<Card*> array;
 	for (int i{ 0 }; i < 3; i++)
 	{
 		array.addElement(deck->getBeginCard());
 		deck->deleteBeginCard();
-	}
+	}*/
 
-	for (int i{ 0 }; i < 3; i++)
+	/*for (int i{ 0 }; i < 3; i++)
 	{
 		std::cout << i + 1 << " Card: " << std::endl;
 		std::cout << array[i]->getSuitName() << std::endl;
@@ -54,9 +58,24 @@ int main()
 		std::cout << array[i]->getTrump() << std::endl;
 		std::cout << array[i]->getCondition() << std::endl;
 		std::cout << std::endl;
-	}
+	}*/
 	std::cout << std::endl << std::endl;
 
+	Move::MoveInitialization(player, player1, player1->getSizeDeck());
+
+	std::cout << std::endl << std::endl;
+	std::cout << player->getName() << std::endl;
+	for (int i{ 0 }; i < player->getSizeDeck(); i++)
+	{
+		std::cout << player->getCardName(i) << std::endl;
+	}
+
+	std::cout << std::endl << std::endl;
+	std::cout << player1->getName() << std::endl;
+	for (int i{ 0 }; i < player1->getSizeDeck(); i++)
+	{
+		std::cout << player1->getCardName(i) << std::endl;
+	}
 	/*Array<Card*> temp;
 	temp.addArrayElement(&player->setDeck());
 
@@ -69,7 +88,7 @@ int main()
 
 	//std::cout << choicer.setCard()->getName();
 
-	Menu<Card*> menu{ "Choicer", "What card do you want to take?:", {{array[0]->getTypeName(), std::make_shared<Card*>(array[0])}, {array[1]->getTypeName(), std::make_shared<Card*>(array[1])}, {array[2]->getTypeName(), std::make_shared<Card*>(array[2])}} };
+	/*Menu<Card*> menu{ "Choicer", "What card do you want to take?:", {{array[0]->getTypeName(), std::make_shared<Card*>(array[0])}, {array[1]->getTypeName(), std::make_shared<Card*>(array[1])}, {array[2]->getTypeName(), std::make_shared<Card*>(array[2])}} };
 
 	Card* card = menu[menu.setChoicePlayer()];
 
@@ -79,7 +98,7 @@ int main()
 	std::cout << card->getTypeCard() << std::endl;
 	std::cout << card->getTrump() << std::endl;
 	std::cout << card->getCondition() << std::endl;
-	std::cout << std::endl;
+	std::cout << std::endl;*/
 
 
 	return 0;

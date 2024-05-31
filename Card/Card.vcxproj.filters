@@ -87,6 +87,9 @@
     <ClCompile Include="Move.cpp">
       <Filter>Исходные файлы</Filter>
     </ClCompile>
+    <ClCompile Include="GameHelper.cpp">
+      <Filter>Исходные файлы</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="CARD_CONDITION.h">
@@ -169,6 +172,9 @@
     </ClInclude>
     <ClInclude Include="RESULT_MOVE.h">
       <Filter>Файлы заголовков\ENUMS</Filter>
+    </ClInclude>
+    <ClInclude Include="GameHelper.h">
+      <Filter>Файлы заголовков</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>
