@@ -129,12 +129,13 @@
   <ItemGroup>
     <ClCompile Include="Array.cpp" />
     <ClCompile Include="Card.cpp" />
-    <ClCompile Include="ChoicingCard.cpp" />
+    <ClCompile Include="ChoicingElement.cpp" />
     <ClCompile Include="Deck.cpp" />
     <ClCompile Include="DefendInitialization.cpp" />
     <ClCompile Include="GameHelper.cpp" />
     <ClCompile Include="GameManager.cpp" />
     <ClCompile Include="GiverCards.cpp" />
+    <ClCompile Include="GlobalMove.cpp" />
     <ClCompile Include="main.cpp" />
     <ClCompile Include="Menu.cpp" />
     <ClCompile Include="MenuCreatCard.cpp" />
@@ -148,17 +149,19 @@
     <ClInclude Include="Array.h" />
     <ClInclude Include="Card.h" />
     <ClInclude Include="CARD_CONDITION.h" />
-    <ClInclude Include="ChoicingCard.h" />
+    <ClInclude Include="ChoicingElement.h" />
     <ClInclude Include="Clubs.h" />
     <ClInclude Include="ClubsCreator.h" />
     <ClInclude Include="Creator.h" />
     <ClInclude Include="Deck.h" />
     <ClInclude Include="DefendInitialization.h" />
+    <ClInclude Include="DEFINITIONS_MOVE.h" />
     <ClInclude Include="Diamonds.h" />
     <ClInclude Include="DiamondsCreator.h" />
     <ClInclude Include="GameHelper.h" />
     <ClInclude Include="GameManager.h" />
     <ClInclude Include="GiverCards.h" />
+    <ClInclude Include="GlobalMove.h" />
     <ClInclude Include="Hearts.h" />
     <ClInclude Include="HeartsCreator.h" />
     <ClInclude Include="InfoTypeCard.h" />

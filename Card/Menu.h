@@ -3,7 +3,7 @@
 #include <vector>
 #include <string>
 #include <cassert>
-//#include "Deck.h"
+#include "Deck.h"
 #include "ItemMenu.h"
 
 typedef std::string(*pointStrigFun)();

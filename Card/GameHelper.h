@@ -14,7 +14,7 @@ class GameHelper
 
 public:
 
-	static std::string setNamePlayer(std::vector<Player*>& players);
+	static std::string setNamePlayer(std::vector<Player*>& players, const int numberPlayer);
 
 	static Card* checkMinSuitCard(Player* player);
 

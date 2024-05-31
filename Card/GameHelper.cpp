@@ -1,10 +1,9 @@
 #include "GameHelper.h"
 
-std::string GameHelper::setNamePlayer(std::vector<Player*>& players)
+std::string GameHelper::setNamePlayer(std::vector<Player*>& players, const int numberPlayer)
 {
 	std::string name{};
 	bool uniqueName{ true };
-	int numberPlayer{ 1 };
 	do
 	{
 		if (uniqueName == true)

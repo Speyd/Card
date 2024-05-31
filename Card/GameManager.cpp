@@ -1,5 +1,6 @@
 #include "GameManager.h"
 #include "GiverCards.h"
+#include "GlobalMove.h"
 #include "Move.h"
 #include "Player.h"
 
@@ -12,7 +13,7 @@ void GameManager::setPlayers()
 	GiverCards tempGiverCards{ generalDeck };
 	for (int i{ 0 }; i < maxAmountPlayer; i++)
 	{
-		players.push_back(Player::setPlayer(GameHelper::setNamePlayer(players)));
+		players.push_back(Player::setPlayer(GameHelper::setNamePlayer(players, i + 1)));
 		tempGiverCards.firstDistributionCardsPlayers(players[i]);
 	}
 }
@@ -23,8 +24,8 @@ GameManager::GameManager(const short _maxAmountCard, const short _maxAmountPlaye
 	GameManager::maxAmountCard = _maxAmountCard;
 	GameManager::maxAmountPlayer = _maxAmountPlayer;
 
-	//setPlayers();
-	//globalMove = new GlobalMove{ players, generalDeck };
+	setPlayers();
+	globalMove = new GlobalMove{ players, generalDeck };
 }
 
 const short GameManager::getMaxAmountCard()
@@ -37,16 +38,7 @@ const short GameManager::getMaxAmountPlayer()
 	return maxAmountPlayer;
 }
 
-void GameManager::getCard(int index)
+void GameManager::startGame()
 {
-	for (int i = 0; i < players[index]->getSizeDeck(); ++i) {
-		if (players[index] != nullptr && players[index]->getCard(i) != nullptr) {
-			std::cout << players[index]->getCard(i)->getName() << std::endl;
-		}
-	}
-}
-
-void GameManager::M()
-{
-	//this->globalMove->makeMove();
+	this->globalMove->makeMove();
 }

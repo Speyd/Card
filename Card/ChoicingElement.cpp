@@ -1,6 +1,6 @@
-#include "ChoicingCard.h"
+#include "ChoicingElement.h"
 
-ChoicingCard::ChoicingCard(const std::string& _nameMenu,
+ChoicingElement::ChoicingElement(const std::string& _nameMenu,
 	const std::string& _textQuestion,
 	const std::string& lastTextChoice,
 	const Array<Card*>* player,
@@ -10,7 +10,7 @@ ChoicingCard::ChoicingCard(const std::string& _nameMenu,
 {}
 
 
-std::vector<ItemMenu<Card*>> ChoicingCard::setItemsMenu(const Array<Card*>* player, const std::string& lastTextChoice)			//TODO: вынужденные костыли
+std::vector<ItemMenu<Card*>> ChoicingElement::setItemsMenu(const Array<Card*>* player, const std::string& lastTextChoice)			//TODO: вынужденные костыли
 {
 	std::vector<ItemMenu<Card*>> tempItemMenu;
 	int size = player->getSize();
@@ -25,7 +25,7 @@ std::vector<ItemMenu<Card*>> ChoicingCard::setItemsMenu(const Array<Card*>* play
 	return tempItemMenu;
 }
 
-Card* ChoicingCard::setCard()
+Card* ChoicingElement::setCard()
 {
 	return menu[menu.setChoicePlayer()];
 }

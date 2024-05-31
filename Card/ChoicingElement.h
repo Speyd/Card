@@ -5,7 +5,7 @@
 #include "Menu.h"
 #include "Deck.h"
 
-class ChoicingCard
+class ChoicingElement
 {
 private:
 
@@ -14,7 +14,7 @@ private:
 
 public:
 
-	ChoicingCard(const std::string& _nameMenu,
+	ChoicingElement(const std::string& _nameMenu,
 		const std::string& _textQuestion,
 		const std::string& lastTextChoice,
 		const Array<Card*>* player, std::vector<pointStrigFun> _additionalText = std::vector<pointStrigFun>{});

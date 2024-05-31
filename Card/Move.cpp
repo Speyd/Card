@@ -88,7 +88,6 @@ RESULT_CHECK_SELECTED Move::checkSelectedCard(Card* selectedCard, Array<Card*>* 
 	{
 		allCards->clear();
 		return RESULT_CHECK_SELECTED::FINISH_SELECTION;
-			GameHelper::checkConditionCard(allAttackCardPlayer, attackPlayer, CARD_CONDITION::UNTOUCHED);
 	}
 	else if (selectedCard == nullptr && allAttackCardPlayer->size() == 0)		//TODO: Если текущий атакующий пропустил ход но количество атакующих карт на столе равно 0
 	{
@@ -119,6 +118,7 @@ RESULT_MOVE Move::setChoiceAttackCard(Player* attackPlayer, const int amountCard
 	}
 
 	Array<Card*>* allCards = new Array<Card*>;
+	const size_t startAmountAttackCard{ allAttackCardPlayer->size() };
 	do
 	{
 		allCards->addArrayElement(*allAttackCardPlayer);
@@ -126,7 +126,7 @@ RESULT_MOVE Move::setChoiceAttackCard(Player* attackPlayer, const int amountCard
 
 		Menu<Card*>::textError.push_back(GameHelper::getTextForAttackPlayer(allCards, "Cards that have already been thrown by both sides"));
 
-		ChoicingCard* choicingAttackCard = new ChoicingCard
+		ChoicingElement* choicingAttackCard = new ChoicingElement
 		{
 			"Attack card",
 			"Attacker \033[1m\"" + nameAttacker + "\"\033[0m attacks Defender \"" + nameDefender + "\"\nWhich card do you want to attack with?",
@@ -166,8 +166,10 @@ RESULT_MOVE Move::setChoiceAttackCard(Player* attackPlayer, const int amountCard
 
 
 	allCards->clear();
-	if (attackPlayer->getSizeDeck() == 0)
+	if (attackPlayer->getSizeDeck() == 0 || startAmountAttackCard == allAttackCardPlayer->size())
 		attackPlayer->setPlayerCondition(PASS_PLAYER::PASS);
+	else
+		attackPlayer->setPlayerCondition(PASS_PLAYER::PASS_NOT);
 
 	return RESULT_MOVE::SUCCESSFULLY;
 }
@@ -204,7 +206,7 @@ RESULT_MOVE Move::setChoiceDefendCard(Array<Card*>* defendDeck, const std::strin
 
 
 		Card* defendCard{ nullptr };
-		ChoicingCard* choicingDefendCard = new ChoicingCard
+		ChoicingElement* choicingDefendCard = new ChoicingElement
 		{
 			"Defend card",
 			"Defender \033[1m\"" + defenderName + "\"\033[0m \nWhich card do you want to use for defend against card \033[1m"
@@ -298,5 +300,5 @@ void Move::clearAllAttackCardPlayer()
 
 const int Move::getAmountAttackCard()
 {
-	return allAttackCardPlayer->size();
+	return int(allAttackCardPlayer->size());
 }

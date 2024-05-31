@@ -41,8 +41,8 @@ void Menu<T>::inputItemMenu()
 	//TODO: дополнительная информация
 	for (int i{ 0 }; i < this->additionalText.size(); i++)
 	{
-		//if (this->additionalText[i] != nullptr)
-			//std::cout << this->additionalText[i](Deck::getDeck());
+		if (this->additionalText[i] != nullptr)
+			std::cout << this->additionalText[i]();
 	}
 
 

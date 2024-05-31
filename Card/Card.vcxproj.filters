@@ -37,10 +37,13 @@
     <Filter Include="Файлы заголовков\Player">
       <UniqueIdentifier>{0e829c52-737e-4beb-9ece-41b8db5758fd}</UniqueIdentifier>
     </Filter>
-    <Filter Include="Файлы заголовков\Move">
+    <Filter Include="Файлы заголовков\GlobalMove">
+      <UniqueIdentifier>{d9202822-025a-4245-b59f-fd7529307994}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Файлы заголовков\GlobalMove\Move">
       <UniqueIdentifier>{59f1babd-728d-4b8b-9f30-bbb06e6a0c72}</UniqueIdentifier>
     </Filter>
-    <Filter Include="Файлы заголовков\Move\Move_Enums">
+    <Filter Include="Файлы заголовков\GlobalMove\Move\Move_Enums">
       <UniqueIdentifier>{618c8eec-b3e0-4133-8ce3-4e57052871b0}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
@@ -75,14 +78,14 @@
     <ClCompile Include="GiverCards.cpp">
       <Filter>Исходные файлы</Filter>
     </ClCompile>
-    <ClCompile Include="ChoicingCard.cpp">
+    <ClCompile Include="ChoicingElement.cpp">
       <Filter>Исходные файлы</Filter>
     </ClCompile>
     <ClCompile Include="DefendInitialization.cpp">
       <Filter>Исходные файлы</Filter>
     </ClCompile>
     <ClCompile Include="RESULT_ATTACK.h">
-      <Filter>Файлы заголовков\Move\Move_Enums</Filter>
+      <Filter>Файлы заголовков\GlobalMove\Move\Move_Enums</Filter>
     </ClCompile>
     <ClCompile Include="Move.cpp">
       <Filter>Исходные файлы</Filter>
@@ -91,6 +94,9 @@
       <Filter>Исходные файлы</Filter>
     </ClCompile>
     <ClCompile Include="GameManager.cpp">
+      <Filter>Исходные файлы</Filter>
+    </ClCompile>
+    <ClCompile Include="GlobalMove.cpp">
       <Filter>Исходные файлы</Filter>
     </ClCompile>
   </ItemGroup>
@@ -161,11 +167,11 @@
     <ClInclude Include="GiverCards.h">
       <Filter>Файлы заголовков</Filter>
     </ClInclude>
-    <ClInclude Include="ChoicingCard.h">
-      <Filter>Файлы заголовков\Move</Filter>
+    <ClInclude Include="ChoicingElement.h">
+      <Filter>Файлы заголовков\GlobalMove\Move</Filter>
     </ClInclude>
     <ClInclude Include="DefendInitialization.h">
-      <Filter>Файлы заголовков\Move</Filter>
+      <Filter>Файлы заголовков\GlobalMove\Move</Filter>
     </ClInclude>
     <ClInclude Include="SELECTING_ADDITIONAL_CARD.h">
       <Filter>Файлы заголовков\ENUMS</Filter>
@@ -180,10 +186,16 @@
       <Filter>Файлы заголовков</Filter>
     </ClInclude>
     <ClInclude Include="Move.h">
-      <Filter>Файлы заголовков\Move</Filter>
+      <Filter>Файлы заголовков\GlobalMove\Move</Filter>
     </ClInclude>
     <ClInclude Include="RESULT_CHECK_SELECTED.h">
-      <Filter>Файлы заголовков\Move\Move_Enums</Filter>
+      <Filter>Файлы заголовков\GlobalMove\Move\Move_Enums</Filter>
+    </ClInclude>
+    <ClInclude Include="DEFINITIONS_MOVE.h">
+      <Filter>Файлы заголовков\GlobalMove</Filter>
+    </ClInclude>
+    <ClInclude Include="GlobalMove.h">
+      <Filter>Файлы заголовков\GlobalMove</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>

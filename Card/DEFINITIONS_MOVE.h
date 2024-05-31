@@ -1,0 +1,6 @@
+#pragma once
+enum DEFINITIONS_MOVE
+{
+	NEXT_MOVE,
+	CONTINUE_MOVE
+};

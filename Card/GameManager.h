@@ -1,14 +1,11 @@
 #pragma once
 #include <iostream>
 #include <vector>
-#include "Move.h"
 #include "Deck.h"
-#include "ChoicingCard.h"
-#include "GameHelper.h"
-#include "GiverCards.h"
 
 class Player;
 class GiverCards;
+class GlobalMove;
 class Move;
 
 class GameManager
@@ -19,7 +16,7 @@ private:
 
 	Deck* generalDeck;
 
-	//GlobalMove* globalMove;
+	GlobalMove* globalMove;
 
 	static short maxAmountCard;
 	static short maxAmountPlayer;
@@ -36,7 +33,7 @@ public:
 
 	void getCard(int index);
 
-	void M();
+	void startGame();
 };
 
 
