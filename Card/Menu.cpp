@@ -92,7 +92,7 @@ void Menu<T>::addErrorText(std::string _textError)
 }
 
 template<typename T>
-T& Menu<T>::operator[](const short _choice)					//TODO: With nullptr checker
+T& Menu<T>::operator[](const short _choice)
 {
 
 	assert(_choice >= 0 && choice < this->itemsMenu.size());

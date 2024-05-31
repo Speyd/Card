@@ -37,6 +37,12 @@
     <Filter Include="Файлы заголовков\Player">
       <UniqueIdentifier>{0e829c52-737e-4beb-9ece-41b8db5758fd}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Файлы заголовков\Move">
+      <UniqueIdentifier>{59f1babd-728d-4b8b-9f30-bbb06e6a0c72}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Файлы заголовков\Move\Move_Enums">
+      <UniqueIdentifier>{618c8eec-b3e0-4133-8ce3-4e57052871b0}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="main.cpp">
@@ -71,6 +77,12 @@
     </ClCompile>
     <ClCompile Include="ChoicingCard.cpp">
       <Filter>Исходные файлы</Filter>
+    </ClCompile>
+    <ClCompile Include="DefendInitialization.cpp">
+      <Filter>Исходные файлы</Filter>
+    </ClCompile>
+    <ClCompile Include="RESULT_ATTACK.h">
+      <Filter>Файлы заголовков\Move\Move_Enums</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -141,7 +153,10 @@
       <Filter>Файлы заголовков</Filter>
     </ClInclude>
     <ClInclude Include="ChoicingCard.h">
-      <Filter>Файлы заголовков</Filter>
+      <Filter>Файлы заголовков\Move</Filter>
+    </ClInclude>
+    <ClInclude Include="DefendInitialization.h">
+      <Filter>Файлы заголовков\Move</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>

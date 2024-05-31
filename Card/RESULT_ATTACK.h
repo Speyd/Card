@@ -1,0 +1,8 @@
+#pragma once
+
+enum RESULT_ATTACK
+{
+	SUCCESSFUL_ATTACK,
+	UNSUCCESSFUL_ATTACK
+
+};
