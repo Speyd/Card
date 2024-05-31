@@ -136,6 +136,7 @@
     <ClCompile Include="main.cpp" />
     <ClCompile Include="Menu.cpp" />
     <ClCompile Include="MenuCreatCard.cpp" />
+    <ClCompile Include="Move.cpp" />
     <ClCompile Include="Player.cpp" />
     <ClCompile Include="RESULT_ATTACK.h" />
     <ClCompile Include="TemplateTypeArray.cpp" />
@@ -160,8 +161,11 @@
     <ClInclude Include="ItemMenu.h" />
     <ClInclude Include="Menu.h" />
     <ClInclude Include="MenuCreatCard.h" />
+    <ClInclude Include="Move.h" />
     <ClInclude Include="PASS_PLAYER.h" />
     <ClInclude Include="Player.h" />
+    <ClInclude Include="RESULT_MOVE.h" />
+    <ClInclude Include="SELECTING_ADDITIONAL_CARD.h" />
     <ClInclude Include="Spades.h" />
     <ClInclude Include="SpadesCreator.h" />
     <ClInclude Include="SUITS.h" />

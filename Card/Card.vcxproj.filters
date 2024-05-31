@@ -84,6 +84,9 @@
     <ClCompile Include="RESULT_ATTACK.h">
       <Filter>Файлы заголовков\Move\Move_Enums</Filter>
     </ClCompile>
+    <ClCompile Include="Move.cpp">
+      <Filter>Исходные файлы</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="CARD_CONDITION.h">
@@ -157,6 +160,15 @@
     </ClInclude>
     <ClInclude Include="DefendInitialization.h">
       <Filter>Файлы заголовков\Move</Filter>
+    </ClInclude>
+    <ClInclude Include="Move.h">
+      <Filter>Файлы заголовков</Filter>
+    </ClInclude>
+    <ClInclude Include="SELECTING_ADDITIONAL_CARD.h">
+      <Filter>Файлы заголовков\ENUMS</Filter>
+    </ClInclude>
+    <ClInclude Include="RESULT_MOVE.h">
+      <Filter>Файлы заголовков\ENUMS</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>

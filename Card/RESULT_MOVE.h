@@ -1,0 +1,6 @@
+#pragma once
+enum RESULT_MOVE
+{
+	SUCCESSFULLY,
+	UNSUCCESSFUL
+};
