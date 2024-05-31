@@ -2,7 +2,7 @@
 #include <iostream>
 #include <sstream>
 #include <vector>
-//#include "GameManager.h"
+
 #include "GameHelper.h"
 #include "Player.h"
 #include "Menu.h"
@@ -13,6 +13,8 @@
 #include "PASS_PLAYER.h"
 #include "SELECTING_ADDITIONAL_CARD.h"
 #include "RESULT_MOVE.h"
+
+class GameManager;
 
 class Move
 {

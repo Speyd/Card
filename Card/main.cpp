@@ -17,12 +17,18 @@
 #include "GiverCards.h"
 #include "ChoicingCard.h"
 #include "Move.h"
+#include "GameManager.h"
 
 
 
 int main()
 {
-
+	GameManager game
+	{
+		6,
+		2,
+		{ { TYPES_CARD::SIX, "Six"},  { TYPES_CARD::SEVEN, "Seven"},  { TYPES_CARD::EIGHT, "Eight"} }
+	};
 	Deck* deck = Deck::creatDeckElement({ { TYPES_CARD::SIX, "Six"},  { TYPES_CARD::SEVEN, "Seven"},  { TYPES_CARD::EIGHT, "Eight"} });
 	Player* player = Player::setPlayer("Player1");
 	Player* player1 = Player::setPlayer("Player2");

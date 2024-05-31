@@ -1,4 +1,5 @@
 #include "GiverCards.h"
+#include "GameManager.h"
 
 GiverCards::GiverCards(Deck* _generalDeck) :
 	generalDeck{ _generalDeck }
@@ -7,10 +8,10 @@ GiverCards::GiverCards(Deck* _generalDeck) :
 void GiverCards::giveCard(Player* player)
 {
 
-	if (this->generalDeck == nullptr) return;
+	if (this->generalDeck->getSize() == 0 || this->generalDeck == nullptr) return;
 
 	for (int amountPlayerCard{ player->getSizeDeck() }, amountDeckCard{ this->generalDeck->getSize() };
-		amountPlayerCard < 6 && amountDeckCard > 0;
+		amountPlayerCard < GameManager::getMaxAmountCard()  && amountDeckCard > 0;
 		amountPlayerCard++, amountDeckCard--)
 	{
 		player->setDeck().addElement(this->generalDeck->getBeginCard());
@@ -21,11 +22,11 @@ void GiverCards::giveCard(Player* player)
 
 void GiverCards::firstDistributionCardsPlayers(Player* player)
 {
-	if (this->generalDeck == nullptr) return;
+	if (this->generalDeck->getSize() == 0 || this->generalDeck == nullptr) return;
 
-	short averageAmountCard = this->generalDeck->getFullAmountCard() / 2;
+	short averageAmountCard = this->generalDeck->getFullAmountCard() / GameManager::getMaxAmountPlayer();
 	averageAmountCard = averageAmountCard == 0 ? 1 : averageAmountCard;
-	averageAmountCard = averageAmountCard < 6 ? averageAmountCard : 6;
+	averageAmountCard = averageAmountCard < GameManager::getMaxAmountCard() ? averageAmountCard : GameManager::getMaxAmountCard();
 
 	if (this->generalDeck->getSize() != 0)
 	{
@@ -45,7 +46,7 @@ void GiverCards::distributingCardsPlayers(std::vector<Player*>& attackPlayers, P
 
 	for (Player* attaker : attackPlayers)
 	{
-		if (attaker == nullptr || attaker->getSizeDeck() >= 6)
+		if (attaker == nullptr || attaker->getSizeDeck() >= GameManager::getMaxAmountCard())
 			continue;
 
 		giveCard(attaker);

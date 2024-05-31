@@ -4,6 +4,8 @@
 #include "Player.h"
 #include "Array.h"
 
+class GameManager;
+
 class GiverCards
 {
 private:

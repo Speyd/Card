@@ -90,6 +90,9 @@
     <ClCompile Include="GameHelper.cpp">
       <Filter>Исходные файлы</Filter>
     </ClCompile>
+    <ClCompile Include="GameManager.cpp">
+      <Filter>Исходные файлы</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="CARD_CONDITION.h">
@@ -164,9 +167,6 @@
     <ClInclude Include="DefendInitialization.h">
       <Filter>Файлы заголовков\Move</Filter>
     </ClInclude>
-    <ClInclude Include="Move.h">
-      <Filter>Файлы заголовков</Filter>
-    </ClInclude>
     <ClInclude Include="SELECTING_ADDITIONAL_CARD.h">
       <Filter>Файлы заголовков\ENUMS</Filter>
     </ClInclude>
@@ -175,6 +175,12 @@
     </ClInclude>
     <ClInclude Include="GameHelper.h">
       <Filter>Файлы заголовков</Filter>
+    </ClInclude>
+    <ClInclude Include="GameManager.h">
+      <Filter>Файлы заголовков</Filter>
+    </ClInclude>
+    <ClInclude Include="Move.h">
+      <Filter>Файлы заголовков\Move</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>

@@ -3,8 +3,9 @@
 #include <cassert>
 #include "Array.h"
 #include "Deck.h"
-//#include "GameManager.h"
 #include "PASS_PLAYER.h"
+
+class GameManager;
 
 class Player
 {

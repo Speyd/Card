@@ -1,4 +1,5 @@
 #include "Move.h"
+#include "GameManager.h"
 
 
 Array<Card*>* Move::allDefendCardPlayer = nullptr;
@@ -77,7 +78,8 @@ void Move::successfulAttack(Player* attackPlayer, Card* selectedCard)
 RESULT_MOVE Move::setChoiceAttackCard(Player* attackPlayer, const int amountCardDefendPlayer,
 	const std::string& nameAttacker, const std::string& nameDefender)
 {
-	if (amountCardDefendPlayer == 0 || allAttackCardPlayer->size() >= amountCardDefendPlayer || allAttackCardPlayer->size() > 6 || attackPlayer->getSizeDeck() == 0)
+	if (amountCardDefendPlayer == 0 || allAttackCardPlayer->size() >= amountCardDefendPlayer ||
+		allAttackCardPlayer->size() > GameManager::getMaxAmountCard() || attackPlayer->getSizeDeck() == 0)
 	{
 		attackPlayer->setPlayerCondition(PASS_PLAYER::PASS);
 		return RESULT_MOVE::UNSUCCESSFUL;

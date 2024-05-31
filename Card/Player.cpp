@@ -1,4 +1,6 @@
 #include "Player.h"
+#include "GameManager.h"
+
 
 short Player::amountPlayer{ 0 };
 
@@ -18,7 +20,7 @@ Player::~Player()
 
 Player* Player::setPlayer(const std::string& _name)
 {
-	if (amountPlayer < 2)				//TODO: GameManager::getMaxAmountPlayer() גלוסעמ 1
+	if (amountPlayer < GameManager::getMaxAmountPlayer())
 		return new Player{ _name };
 	else
 	{
