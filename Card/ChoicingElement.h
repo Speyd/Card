@@ -3,21 +3,23 @@
 #include <vector>
 #include "Array.h"
 #include "Menu.h"
+#include "Player.h"
 #include "Deck.h"
 
+template<typename T>
 class ChoicingElement
 {
 private:
 
-	Menu<Card*> menu;
-	std::vector<ItemMenu<Card*>> setItemsMenu(const Array<Card*>* player, const std::string& lastTextChoice);
+	Menu<T> menu;
+	std::vector<ItemMenu<T>> setItemsMenu(const Array<T>* elements, const std::string& lastTextChoice);
 
 public:
 
 	ChoicingElement(const std::string& _nameMenu,
 		const std::string& _textQuestion,
 		const std::string& lastTextChoice,
-		const Array<Card*>* player, std::vector<pointStrigFun> _additionalText = std::vector<pointStrigFun>{});
+		const Array<T>* elements, std::vector<pointStrigFun> _additionalText = std::vector<pointStrigFun>{});
 
-	Card* setCard();
+	T setElement();
 };

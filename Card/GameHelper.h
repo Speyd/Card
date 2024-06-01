@@ -31,4 +31,9 @@ public:
 	static RESULT_MOVE checkConditionCard(std::vector<Card*>* allAttackCardPlayer, Player* player, CARD_CONDITION cardCondition);
 
 	static int getAmountPassAttaker(std::vector<Player*> players);
+
+	static std::vector<ItemMenu<Card*>> getItemMenuCard(const Array<Card*>* deck, const std::string& lastTextChoice);
+
+	static std::vector<ItemMenu<Player*>> getItemMenuPlayer(const Array<Player*>* players, const std::string& lastTextChoice);
+
 };

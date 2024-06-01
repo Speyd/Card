@@ -143,6 +143,7 @@
     <ClCompile Include="Player.cpp" />
     <ClCompile Include="RESULT_ATTACK.h" />
     <ClCompile Include="TemplateTypeArray.cpp" />
+    <ClCompile Include="TemplateTypeChoicingElement.cpp" />
     <ClCompile Include="TemplateTypeMenu.cpp" />
   </ItemGroup>
   <ItemGroup>

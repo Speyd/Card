@@ -31,8 +31,6 @@ public:
 
 	static const short getMaxAmountPlayer();
 
-	void getCard(int index);
-
 	void startGame();
 };
 

@@ -124,17 +124,16 @@ RESULT_MOVE Move::setChoiceAttackCard(Player* attackPlayer, const int amountCard
 		allCards->addArrayElement(*allAttackCardPlayer);
 		allCards->addArrayElement(allDefendCardPlayer);
 
-		Menu<Card*>::textError.push_back(GameHelper::getTextForAttackPlayer(allCards, "Cards that have already been thrown by both sides"));
 
-		ChoicingElement* choicingAttackCard = new ChoicingElement
+		Menu<Card*>::textError.push_back(GameHelper::getTextForAttackPlayer(allCards, "Cards that have already been thrown by both sides"));
+		Menu<Card*> choicingAttackCard
 		{
 			"Attack card",
 			"Attacker \033[1m\"" + nameAttacker + "\"\033[0m attacks Defender \"" + nameDefender + "\"\nWhich card do you want to attack with?",
-			"Pass the move",
-			attackPlayer->getDeck(),
+			GameHelper::getItemMenuCard(attackPlayer->getDeck(), "Pass the move"),
 			std::vector<pointStrigFun>{ &GameHelper::getSuitGame,& GameHelper::getAmountCardsGeneralDeck}
 		};
-		Card* selectedCard = choicingAttackCard->setCard();
+		Card* selectedCard = choicingAttackCard[choicingAttackCard.setChoicePlayer()];
 
 
 
@@ -206,7 +205,7 @@ RESULT_MOVE Move::setChoiceDefendCard(Array<Card*>* defendDeck, const std::strin
 
 
 		Card* defendCard{ nullptr };
-		ChoicingElement* choicingDefendCard = new ChoicingElement
+		ChoicingElement<Card*>* choicingDefendCard = new ChoicingElement<Card*>
 		{
 			"Defend card",
 			"Defender \033[1m\"" + defenderName + "\"\033[0m \nWhich card do you want to use for defend against card \033[1m"
@@ -226,7 +225,7 @@ RESULT_MOVE Move::setChoiceDefendCard(Array<Card*>* defendDeck, const std::strin
 				"\033[1m" + nameAttaker + "\033[0m threw cards that need to be defended against")
 			);
 
-			defendCard = choicingDefendCard->setCard();
+			defendCard = choicingDefendCard->setElement();
 
 		} while (defendCard != nullptr && GameHelper::boolMenu(
 				"Your choice", 

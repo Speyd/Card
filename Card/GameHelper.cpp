@@ -156,3 +156,29 @@ int GameHelper::getAmountPassAttaker(std::vector<Player*> players)
 
 	return amountPassAttaker;
 }
+
+std::vector<ItemMenu<Card*>> GameHelper::getItemMenuCard(const Array<Card*>* deck, const std::string& lastTextChoice)
+{
+	std::vector<ItemMenu<Card*>> tempItemMenu;
+
+	int size = deck->getSize();
+
+	for (int i{ 0 }; i < size; i++)
+		tempItemMenu.push_back({ (*deck)[i]->getName(), std::make_shared<Card*>((*deck)[i]) });
+
+	if(lastTextChoice.empty() == false)
+		tempItemMenu.push_back({ lastTextChoice, std::make_shared<Card*>(nullptr) });
+}
+
+std::vector<ItemMenu<Player*>> GameHelper::getItemMenuPlayer(const Array<Player*>* players, const std::string& lastTextChoice)
+{
+	std::vector<ItemMenu<Card*>> tempItemMenu;
+
+	int size = players->getSize();
+
+	for (int i{ 0 }; i < size; i++)
+		tempItemMenu.push_back({ (*players)[i]->getName(), std::make_shared<Card*>((*players)[i]) });
+
+	if (lastTextChoice.empty() == false)
+		tempItemMenu.push_back({ lastTextChoice, std::make_shared<Card*>(nullptr) });
+}

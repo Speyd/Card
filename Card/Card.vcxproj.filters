@@ -99,11 +99,11 @@
     <ClCompile Include="GlobalMove.cpp">
       <Filter>Исходные файлы</Filter>
     </ClCompile>
+    <ClCompile Include="TemplateTypeChoicingElement.cpp">
+      <Filter>Исходные файлы</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="CARD_CONDITION.h">
-      <Filter>Файлы заголовков\ENUMS</Filter>
-    </ClInclude>
     <ClInclude Include="InfoTypeCard.h">
       <Filter>Файлы заголовков\Card</Filter>
     </ClInclude>
@@ -196,6 +196,9 @@
     </ClInclude>
     <ClInclude Include="GlobalMove.h">
       <Filter>Файлы заголовков\GlobalMove</Filter>
+    </ClInclude>
+    <ClInclude Include="CARD_CONDITION.h">
+      <Filter>Файлы заголовков\Card</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>
