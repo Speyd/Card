@@ -1,35 +1,57 @@
 #include <iostream>
-#include <sstream>
-#include <string>
-#include <unordered_map>
-#include <vector>
-#include <cassert>
-#include "Card.h"
-#include "Clubs.h"
-#include "Diamonds.h"
-#include "Hearts.h"
-#include "Spades.h"
-#include "Array.h"
-#include "MenuCreatCard.h"
-#include "Menu.h"
-#include "Deck.h"
-#include "Player.h"
-#include "GiverCards.h"
-#include "Move.h"
+#include <Windows.h>
 #include "GameManager.h"
 
+using namespace std::string_literals;
 
+short inputAmountPlayer()
+{
+	system("cls");
+	short amountPlayer{ 0 };
+
+	std::cout << "Enter the number of players who will take part in the game: ";
+	std::cin >> amountPlayer;
+
+	return amountPlayer >= 0 ? amountPlayer : amountPlayer * -1;
+}
+
+short inputAmountCard()
+{
+	system("cls");
+	short amountCard{ 0 };
+
+	std::cout << "Enter the number of cards in the game: ";
+	std::cin >> amountCard;
+
+	return amountCard > 0 ? amountCard : 1;
+}
 
 int main()
 {
-	GameManager game
+	SetConsoleOutputCP(CP_UTF8);
+	setlocale(LC_ALL, ".UTF8");
+
+	GameManager* game = new GameManager
 	{
-		6,
-		2,
-		{ { TYPES_CARD::SIX, "Six"} }
+		inputAmountPlayer(),
+		inputAmountCard(),
+		{ 
+			{ TYPES_CARD::SIX, "Six"},
+			{ TYPES_CARD::SEVEN, "Seven"},
+			{ TYPES_CARD::EIGHT, "Eight"},
+			{ TYPES_CARD::NINE, "Nine"},
+			{ TYPES_CARD::TEN, "Ten"},
+			{ TYPES_CARD::JACK, "Jck"},
+			{ TYPES_CARD::QUEEN, "Queen"},
+			{ TYPES_CARD::KING, "Kig"},
+			{ TYPES_CARD::ACE, "Ace"},
+		}
 	};
 	
-	game.startGame();
+	game->startGame();
+
+
+	delete game;
 
 	return 0;
 }

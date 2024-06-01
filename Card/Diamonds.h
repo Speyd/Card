@@ -7,7 +7,7 @@ class Diamonds : public Card
 private:
 
 	const SUITS suit{ SUITS::DIAMONDS };
-	const std::string name{ u8"♢Diamonds" };
+	const std::string name{ u8"♦ Diamonds" };
 
 public:
 

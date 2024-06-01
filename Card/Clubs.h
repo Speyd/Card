@@ -6,7 +6,7 @@ class Clubs : public Card
 private:
 
 	const SUITS suit{ SUITS::CLUBS };
-	const std::string name{ u8"♧ Clubs" };
+	const std::string name{ u8"♣ Clubs" };
 
 public:
 

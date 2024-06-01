@@ -1,7 +1,22 @@
 #include "GameHelper.h"
 
+bool isUniqueName(const std::string& name, std::vector<Player*>& players)
+{
+	for (int i{ 0 }; i < players.size(); i++)
+	{
+		if (name == players[i]->getName())
+		{
+			return false;
+		}
+	}
+
+	return true;
+}
+
 std::string GameHelper::setNamePlayer(std::vector<Player*>& players, const int numberPlayer)
 {
+	system("cls");
+
 	std::string name{};
 	bool uniqueName{ true };
 	do
@@ -13,19 +28,11 @@ std::string GameHelper::setNamePlayer(std::vector<Player*>& players, const int n
 
 		std::cin >> name;
 
-		uniqueName = true;
-		for (int i{ 0 }; i < players.size(); i++)
-		{
-			if (name == players[i]->getName())
-			{
-				uniqueName = false;
-				break;
-			}
-		}
+		uniqueName = isUniqueName(name, players);
+	} 
+	while (uniqueName != true);
 
-	} while (uniqueName != true);
-
-	return name;
+	return name.size() != 0 ? name : " Noun_Name_Player" + numberPlayer;
 }
 
 Card* GameHelper::checkMinSuitCard(Player* player)
@@ -37,6 +44,7 @@ Card* GameHelper::checkMinSuitCard(Player* player)
 	{
 		if (minCard == nullptr && player->getCard(i)->getTrump() == true)
 			minCard = player->getCard(i);
+
 		if (minCard != nullptr && player->getCard(i)->getTrump() == true && player->getCard(i)->getTypeCard() < minCard->getTypeCard())
 			minCard = player->getCard(i);
 	}

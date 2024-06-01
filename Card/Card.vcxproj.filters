@@ -28,9 +28,6 @@
     <Filter Include="Файлы заголовков\Creator\SuitCreators">
       <UniqueIdentifier>{fb500092-406b-4994-8d0f-45930ef184bb}</UniqueIdentifier>
     </Filter>
-    <Filter Include="Исходные файлы\Creator">
-      <UniqueIdentifier>{a384814b-0c1e-42db-b972-106a12a335d2}</UniqueIdentifier>
-    </Filter>
     <Filter Include="Файлы заголовков\Menu">
       <UniqueIdentifier>{273f2e63-b0fe-43fe-9ad0-4892fabfb6be}</UniqueIdentifier>
     </Filter>
@@ -46,6 +43,24 @@
     <Filter Include="Файлы заголовков\GlobalMove\Move\Move_Enums">
       <UniqueIdentifier>{618c8eec-b3e0-4133-8ce3-4e57052871b0}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Исходные файлы\Array">
+      <UniqueIdentifier>{e4e624dd-c6c1-461f-ab36-ab5d069fac14}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Исходные файлы\Menu">
+      <UniqueIdentifier>{08167718-5c3d-4d14-8e12-fca4abe190e5}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Исходные файлы\GlobalMove">
+      <UniqueIdentifier>{bef6ab20-0995-4727-85b9-115c080bdc30}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Исходные файлы\GlobalMove\Move">
+      <UniqueIdentifier>{bf668365-638b-45bc-bb62-c6b882d12e6a}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Исходные файлы\GameManager">
+      <UniqueIdentifier>{b22330f2-aff4-414d-8a02-d9178281d389}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Файлы заголовков\GameManager">
+      <UniqueIdentifier>{2d69db99-212b-4a24-88b8-c47ed074a573}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="main.cpp">
@@ -54,47 +69,47 @@
     <ClCompile Include="Card.cpp">
       <Filter>Исходные файлы</Filter>
     </ClCompile>
-    <ClCompile Include="Array.cpp">
-      <Filter>Исходные файлы</Filter>
-    </ClCompile>
-    <ClCompile Include="TemplateTypeArray.cpp">
-      <Filter>Исходные файлы</Filter>
-    </ClCompile>
-    <ClCompile Include="MenuCreatCard.cpp">
-      <Filter>Исходные файлы\Creator</Filter>
-    </ClCompile>
-    <ClCompile Include="Menu.cpp">
-      <Filter>Исходные файлы</Filter>
-    </ClCompile>
-    <ClCompile Include="TemplateTypeMenu.cpp">
-      <Filter>Исходные файлы</Filter>
-    </ClCompile>
     <ClCompile Include="Deck.cpp">
       <Filter>Исходные файлы</Filter>
     </ClCompile>
     <ClCompile Include="Player.cpp">
       <Filter>Исходные файлы</Filter>
     </ClCompile>
-    <ClCompile Include="GiverCards.cpp">
-      <Filter>Исходные файлы</Filter>
-    </ClCompile>
-    <ClCompile Include="DefendInitialization.cpp">
-      <Filter>Исходные файлы</Filter>
-    </ClCompile>
     <ClCompile Include="RESULT_ATTACK.h">
       <Filter>Файлы заголовков\GlobalMove\Move\Move_Enums</Filter>
     </ClCompile>
+    <ClCompile Include="Array.cpp">
+      <Filter>Исходные файлы\Array</Filter>
+    </ClCompile>
+    <ClCompile Include="TemplateTypeArray.cpp">
+      <Filter>Исходные файлы\Array</Filter>
+    </ClCompile>
+    <ClCompile Include="Menu.cpp">
+      <Filter>Исходные файлы\Menu</Filter>
+    </ClCompile>
+    <ClCompile Include="MenuCreatCard.cpp">
+      <Filter>Исходные файлы\Menu</Filter>
+    </ClCompile>
+    <ClCompile Include="TemplateTypeMenu.cpp">
+      <Filter>Исходные файлы\Menu</Filter>
+    </ClCompile>
     <ClCompile Include="Move.cpp">
-      <Filter>Исходные файлы</Filter>
+      <Filter>Исходные файлы\GlobalMove\Move</Filter>
     </ClCompile>
-    <ClCompile Include="GameHelper.cpp">
-      <Filter>Исходные файлы</Filter>
-    </ClCompile>
-    <ClCompile Include="GameManager.cpp">
-      <Filter>Исходные файлы</Filter>
+    <ClCompile Include="DefendInitialization.cpp">
+      <Filter>Исходные файлы\GlobalMove\Move</Filter>
     </ClCompile>
     <ClCompile Include="GlobalMove.cpp">
-      <Filter>Исходные файлы</Filter>
+      <Filter>Исходные файлы\GlobalMove</Filter>
+    </ClCompile>
+    <ClCompile Include="GiverCards.cpp">
+      <Filter>Исходные файлы\GlobalMove</Filter>
+    </ClCompile>
+    <ClCompile Include="GameManager.cpp">
+      <Filter>Исходные файлы\GameManager</Filter>
+    </ClCompile>
+    <ClCompile Include="GameHelper.cpp">
+      <Filter>Исходные файлы\GameManager</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -158,9 +173,6 @@
     <ClInclude Include="PASS_PLAYER.h">
       <Filter>Файлы заголовков\Player</Filter>
     </ClInclude>
-    <ClInclude Include="GiverCards.h">
-      <Filter>Файлы заголовков</Filter>
-    </ClInclude>
     <ClInclude Include="DefendInitialization.h">
       <Filter>Файлы заголовков\GlobalMove\Move</Filter>
     </ClInclude>
@@ -169,12 +181,6 @@
     </ClInclude>
     <ClInclude Include="RESULT_MOVE.h">
       <Filter>Файлы заголовков\ENUMS</Filter>
-    </ClInclude>
-    <ClInclude Include="GameHelper.h">
-      <Filter>Файлы заголовков</Filter>
-    </ClInclude>
-    <ClInclude Include="GameManager.h">
-      <Filter>Файлы заголовков</Filter>
     </ClInclude>
     <ClInclude Include="Move.h">
       <Filter>Файлы заголовков\GlobalMove\Move</Filter>
@@ -190,6 +196,15 @@
     </ClInclude>
     <ClInclude Include="CARD_CONDITION.h">
       <Filter>Файлы заголовков\Card</Filter>
+    </ClInclude>
+    <ClInclude Include="GameManager.h">
+      <Filter>Файлы заголовков\GameManager</Filter>
+    </ClInclude>
+    <ClInclude Include="GameHelper.h">
+      <Filter>Файлы заголовков\GameManager</Filter>
+    </ClInclude>
+    <ClInclude Include="GiverCards.h">
+      <Filter>Файлы заголовков\GlobalMove</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>

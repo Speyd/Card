@@ -18,11 +18,11 @@ void GameManager::setPlayers()
 	}
 }
 
-GameManager::GameManager(const short _maxAmountCard, const short _maxAmountPlayer, std::unordered_map<TYPES_CARD, std::string>&& _baseTypesCards) :
+GameManager::GameManager(const short _maxAmountPlayer, const short _maxAmountCard, std::unordered_map<TYPES_CARD, std::string>&& _baseTypesCards) :
 	generalDeck{ Deck::creatDeckElement(std::move(_baseTypesCards)) }
 {
-	GameManager::maxAmountCard = _maxAmountCard;
 	GameManager::maxAmountPlayer = _maxAmountPlayer;
+	GameManager::maxAmountCard = _maxAmountCard;
 
 	setPlayers();
 	globalMove = new GlobalMove{ players, generalDeck };

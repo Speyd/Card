@@ -7,6 +7,7 @@ Deck::Deck(std::unordered_map<TYPES_CARD, std::string>&& _baseTypesCards) :
 	globalTrump{ SUITS(rand() % ((int(SUITS::MAX_VALUE) - 1) - 0 + 1) + 0) }
 {
 	fillDeck();
+	changeCardOrder();
 }
 
 Deck::~Deck()

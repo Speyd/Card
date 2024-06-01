@@ -25,7 +25,7 @@ private:
 
 public:
 
-	GameManager(const short _maxAmountCard, const short _maxAmountPlayer, std::unordered_map<TYPES_CARD, std::string>&& _baseTypesCards);
+	GameManager(const short _maxAmountPlayer, const short _maxAmountCard, std::unordered_map<TYPES_CARD, std::string>&& _baseTypesCards);
 
 	static const short getMaxAmountCard();
 
