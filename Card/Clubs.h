@@ -1,4 +1,4 @@
-#pragma once
+п»ї#pragma once
 #include "Card.h"
 
 class Clubs : public Card
@@ -6,12 +6,12 @@ class Clubs : public Card
 private:
 
 	const SUITS suit{ SUITS::CLUBS };
-	const std::string name{ "Clubs" };
+	const std::string name{ u8"в™§ Clubs" };
 
 public:
 
 	Clubs(SUITS _suit, TYPES_CARD typeCard, std::string nameType) :
-		Card(typeCard, nameType, SUITS::CLUBS == _suit) //TODO: вынужненный хардко из за того, что поле "suit" не успевает инициализироваться
+		Card(typeCard, nameType, SUITS::CLUBS == _suit) //TODO: РІС‹РЅСѓР¶РЅРµРЅРЅС‹Р№ С…Р°СЂРґРєРѕ РёР· Р·Р° С‚РѕРіРѕ, С‡С‚Рѕ РїРѕР»Рµ "suit" РЅРµ СѓСЃРїРµРІР°РµС‚ РёРЅРёС†РёР°Р»РёР·РёСЂРѕРІР°С‚СЊСЃСЏ
 	{}
 
 	virtual ~Clubs() override

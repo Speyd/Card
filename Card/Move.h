@@ -6,7 +6,6 @@
 #include "GameHelper.h"
 #include "Player.h"
 #include "Menu.h"
-#include "ChoicingElement.h"
 #include "DefendInitialization.h"
 
 #include "CARD_CONDITION.h"

@@ -7,25 +7,42 @@ template<typename T>
 Menu<T>::Menu(const std::string& _nameMenu,
 	const std::string& _textQuestion,
 	std::vector<ItemMenu<T>>&& _itemsMenu,
-	std::vector<pointStrigFun> _additionalText) :
+	std::vector<pointStrigFun> _additionalText,
+	bool _clearConsole) :
 
 	choice{ 1 },
 	nameMenu{ _nameMenu },
 	textQuestion{ _textQuestion },
 	itemsMenu{ _itemsMenu },
+	clearConsole{ _clearConsole },
 	additionalText{ _additionalText }
 {}
 
 template<typename T>
 Menu<T>::Menu(const std::string& _nameMenu,
 	const std::string& _textQuestion,
-	std::vector<ItemMenu<T>>& _itemsMenu,
-	std::vector<pointStrigFun> _additionalText) :
+	std::vector<ItemMenu<T>>&& _itemsMenu,
+	bool _clearConsole) :
 
 	choice{ 1 },
 	nameMenu{ _nameMenu },
 	textQuestion{ _textQuestion },
 	itemsMenu{ _itemsMenu },
+	clearConsole{ _clearConsole }
+{}
+
+template<typename T>
+Menu<T>::Menu(const std::string& _nameMenu,
+	const std::string& _textQuestion,
+	std::vector<ItemMenu<T>>& _itemsMenu,
+	std::vector<pointStrigFun> _additionalText,
+	bool _clearConsole) :
+
+	choice{ 1 },
+	nameMenu{ _nameMenu },
+	textQuestion{ _textQuestion },
+	itemsMenu{ _itemsMenu },
+	clearConsole{ _clearConsole },
 	additionalText{ _additionalText }
 {}
 
@@ -75,10 +92,13 @@ const short Menu<T>::setChoicePlayer()
 
 	do
 	{
-		//system("cls");
+		if(clearConsole == true)
+			system("cls");
+
 		inputItemMenu();
 		std::cout << textQuestion << ": "; std::cin >> this->choice;
-	} while (this->choice < 1 || this->choice > this->itemsMenu.size());
+	} 
+	while (this->choice < 1 || this->choice > this->itemsMenu.size());
 
 	textError.clear();
 

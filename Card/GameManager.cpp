@@ -40,5 +40,8 @@ const short GameManager::getMaxAmountPlayer()
 
 void GameManager::startGame()
 {
-	this->globalMove->makeMove();
+	if (maxAmountPlayer >= 2)
+		this->globalMove->makeMove();
+	else
+		std::cout << "Sorry, but the game can't start, the number of players is small (must be 2 or more)" << std::endl;
 }

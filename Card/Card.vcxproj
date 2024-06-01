@@ -129,7 +129,6 @@
   <ItemGroup>
     <ClCompile Include="Array.cpp" />
     <ClCompile Include="Card.cpp" />
-    <ClCompile Include="ChoicingElement.cpp" />
     <ClCompile Include="Deck.cpp" />
     <ClCompile Include="DefendInitialization.cpp" />
     <ClCompile Include="GameHelper.cpp" />
@@ -143,14 +142,12 @@
     <ClCompile Include="Player.cpp" />
     <ClCompile Include="RESULT_ATTACK.h" />
     <ClCompile Include="TemplateTypeArray.cpp" />
-    <ClCompile Include="TemplateTypeChoicingElement.cpp" />
     <ClCompile Include="TemplateTypeMenu.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Array.h" />
     <ClInclude Include="Card.h" />
     <ClInclude Include="CARD_CONDITION.h" />
-    <ClInclude Include="ChoicingElement.h" />
     <ClInclude Include="Clubs.h" />
     <ClInclude Include="ClubsCreator.h" />
     <ClInclude Include="Creator.h" />

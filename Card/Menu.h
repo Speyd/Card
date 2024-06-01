@@ -18,17 +18,27 @@ private:
 	const std::string nameMenu;
 	const std::string textQuestion;
 	std::vector<pointStrigFun> additionalText;
+	bool clearConsole;
 
 public:
 	static std::vector<std::string> textError;
 
-	Menu(const std::string& _nameMenu, const std::string& _textQuestion,
+	Menu(const std::string& _nameMenu,
+		const std::string& _textQuestion,
 		std::vector<ItemMenu<T>>&& _itemsMenu,
-		std::vector<pointStrigFun> _additionalText = std::vector<pointStrigFun>{});
+		std::vector<pointStrigFun> _additionalText = std::vector<pointStrigFun>{},
+		bool clearConsole = true);
 
-	Menu(const std::string& _nameMenu, const std::string& _textQuestion,
+	Menu(const std::string& _nameMenu,
+		const std::string& _textQuestion,
+		std::vector<ItemMenu<T>>&& _itemsMenu,
+		bool clearConsole = true);
+
+	Menu(const std::string& _nameMenu,
+		const std::string& _textQuestion,
 		std::vector<ItemMenu<T>>& _itemsMenu,
-		std::vector<pointStrigFun> _additionalText = std::vector<pointStrigFun>{});
+		std::vector<pointStrigFun> _additionalText = std::vector<pointStrigFun>{},
+		bool clearConsole = true);
 
 
 	void inputItemMenu();

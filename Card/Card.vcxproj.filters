@@ -78,9 +78,6 @@
     <ClCompile Include="GiverCards.cpp">
       <Filter>Исходные файлы</Filter>
     </ClCompile>
-    <ClCompile Include="ChoicingElement.cpp">
-      <Filter>Исходные файлы</Filter>
-    </ClCompile>
     <ClCompile Include="DefendInitialization.cpp">
       <Filter>Исходные файлы</Filter>
     </ClCompile>
@@ -97,9 +94,6 @@
       <Filter>Исходные файлы</Filter>
     </ClCompile>
     <ClCompile Include="GlobalMove.cpp">
-      <Filter>Исходные файлы</Filter>
-    </ClCompile>
-    <ClCompile Include="TemplateTypeChoicingElement.cpp">
       <Filter>Исходные файлы</Filter>
     </ClCompile>
   </ItemGroup>
@@ -166,9 +160,6 @@
     </ClInclude>
     <ClInclude Include="GiverCards.h">
       <Filter>Файлы заголовков</Filter>
-    </ClInclude>
-    <ClInclude Include="ChoicingElement.h">
-      <Filter>Файлы заголовков\GlobalMove\Move</Filter>
     </ClInclude>
     <ClInclude Include="DefendInitialization.h">
       <Filter>Файлы заголовков\GlobalMove\Move</Filter>

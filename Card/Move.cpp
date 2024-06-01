@@ -56,7 +56,7 @@ SELECTING_ADDITIONAL_CARD Move::suspicionThrow(const std::string& nameMenu, cons
 	const std::string& textErrorChoice, std::vector<ItemMenu<bool>> items)
 {
 
-	bool resultMenu = GameHelper::boolMenu(nameMenu, textQueation, items);
+	bool resultMenu = GameHelper::boolMenu(nameMenu, textQueation, items, false);
 
 	if (resultMenu == false && allAttackCardPlayer->size() == 0)
 		Menu<Card*>::textError.push_back(textErrorChoice);
@@ -74,7 +74,7 @@ RESULT_CHECK_SELECTED Move::checkSelectedCard(Card* selectedCard, Array<Card*>* 
 		if (GameHelper::boolMenu(
 			"Your choice",
 			"Do you really want to attack with this card?",
-			{ { "Yes", std::make_shared<bool>(true) }, { "No", std::make_shared<bool>(false) } })
+			{ { "Yes", std::make_shared<bool>(true) }, { "No", std::make_shared<bool>(false) } }, false)
 			== true)
 		{
 			if (checkTrueCardAttack(selectedCard, *allCards) == true)
@@ -205,13 +205,12 @@ RESULT_MOVE Move::setChoiceDefendCard(Array<Card*>* defendDeck, const std::strin
 
 
 		Card* defendCard{ nullptr };
-		ChoicingElement<Card*>* choicingDefendCard = new ChoicingElement<Card*>
+		Menu<Card*> choicingDefendCard
 		{
 			"Defend card",
 			"Defender \033[1m\"" + defenderName + "\"\033[0m \nWhich card do you want to use for defend against card \033[1m"
 			+ attackCard->getName() + "\033[0m?",
-			"Take card(-s)",
-			defendDeck,
+			GameHelper::getItemMenuCard(defendDeck, "Take card(-s)"),
 			std::vector<pointStrigFun>{ &GameHelper::getSuitGame,& GameHelper::getAmountCardsGeneralDeck}
 		};
 
@@ -225,13 +224,13 @@ RESULT_MOVE Move::setChoiceDefendCard(Array<Card*>* defendDeck, const std::strin
 				"\033[1m" + nameAttaker + "\033[0m threw cards that need to be defended against")
 			);
 
-			defendCard = choicingDefendCard->setElement();
+			defendCard = choicingDefendCard[choicingDefendCard.setChoicePlayer()];
 
 		} while (defendCard != nullptr && GameHelper::boolMenu(
 				"Your choice", 
 				"Do you really want to defend with this card?", 
-				{ {"Yes", std::make_shared<bool>(true)}, {"No", std::make_shared<bool>(false)} }
-			) == false);
+				{ {"Yes", std::make_shared<bool>(true)}, {"No", std::make_shared<bool>(false)} }, false
+		) == false);
 
 
 
@@ -246,7 +245,7 @@ RESULT_MOVE Move::setChoiceDefendCard(Array<Card*>* defendDeck, const std::strin
 				(
 					"Your choice",
 					"Do you want to take the card (You may not be able to beat the attacker)?",
-					{ {"Yes", std::make_shared<bool>(true)}, {"No", std::make_shared<bool>(false)} }
+					{ {"Yes", std::make_shared<bool>(true)}, {"No", std::make_shared<bool>(false)}}, false
 				)== true)
 			{
 				unseccessfulDefense(defendDeck);

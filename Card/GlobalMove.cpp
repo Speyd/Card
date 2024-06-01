@@ -122,18 +122,51 @@ GlobalMove::GlobalMove(std::vector<Player*>& players, Deck* generalDeck) :
 
 }
 
+bool GlobalMove::showDeckWinnerPlayer(Player* choicePlayer)
+{
+	std::stringstream text;
+	text << choicePlayer->getName() << "'s cards:" << std::endl;
+
+	if (choicePlayer != nullptr)
+	{
+		int size = choicePlayer->getSizeDeck();
+
+		if (size == 0)
+			text << "No cards" << std::endl;
+		else
+		{
+			for (int i{ 0 }; i < size; i++)
+				text << i + 1 << ". " << choicePlayer->getCardName(i) << std::endl;
+		}
+	}
+
+	Menu<bool> menu
+	{
+		"Top Winner\n" + text.str(),
+		"Do you want to know another player's deck?",
+		{{"Yes", std::make_shared<bool>(true)}, {"No" ,std::make_shared<bool>(false)}},
+		true
+	};
+
+	return menu[menu.setChoicePlayer()];
+}
+
 void GlobalMove::showTopWinnerPlayer()
 {
-	/*Menu<Player*> menu
+	Player* choicePlayer{ nullptr };
+	do
 	{
-		"Top Winner",
-		"Which player do you want to select to check his information?",
-	};*/
+		Menu<Player*> menu
+		{
+			"Top Winner",
+			"Which player do you want to select to check his information?",
+			GameHelper::getItemMenuPlayer(this->topWinnerPlayers, "End game"),
+			true
+		};
 
-	for (int i{ 0 }; i < topWinnerPlayers->getSize(); i++)
-	{
-		std::cout << std::endl << i + 1 << " place: " << (*topWinnerPlayers)[i]->getName();
-	}
+		choicePlayer = menu[menu.setChoicePlayer()];
+		 
+	} while (showDeckWinnerPlayer(choicePlayer) != false);
 }
 
 void GlobalMove::makeMove()
@@ -153,10 +186,6 @@ void GlobalMove::makeMove()
 
 	} while (topWinnerPlayers->getSize() < GameManager::getMaxAmountPlayer());
 
-
-	for (int i{ 0 }; i < topWinnerPlayers->getSize(); i++)
-	{
-		std::cout << std::endl << i + 1 << " place: " << (*topWinnerPlayers)[i]->getName();
-	}
+	showTopWinnerPlayer();
 
 }

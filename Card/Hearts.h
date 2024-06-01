@@ -6,7 +6,7 @@ class Hearts : public Card
 private:
 
 	const SUITS suit{ SUITS::HEARTS };
-	const std::string name{ "Hearts" };
+	const std::string name{ u8"?Hearts" };
 
 public:
 

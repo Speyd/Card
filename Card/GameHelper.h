@@ -26,7 +26,7 @@ public:
 
 	static std::string getTextForDefendPlayer(std::vector<Card*>* allAttackCardPlayer, Card* attackCard, const std::string& textFeedingCards);
 
-	static bool boolMenu(const std::string& nameMenu, const std::string& textQueation, std::vector<ItemMenu<bool>> items);
+	static bool boolMenu(const std::string& nameMenu, const std::string& textQueation, std::vector<ItemMenu<bool>> items, bool clearConsole = true);
 
 	static RESULT_MOVE checkConditionCard(std::vector<Card*>* allAttackCardPlayer, Player* player, CARD_CONDITION cardCondition);
 

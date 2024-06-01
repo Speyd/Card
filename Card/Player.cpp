@@ -62,7 +62,7 @@ void Player::setPlayerCondition(const PASS_PLAYER newPlayerCondition)
 
 std::string Player::getCardName(const short index) const
 {
-	return getCard(index) != nullptr ? getCard(index)->getTypeName() : "ERROR_CARD";
+	return getCard(index) != nullptr ? getCard(index)->getName() : "ERROR_CARD";
 }
 
 const PASS_PLAYER Player::getPlayerCondition() const

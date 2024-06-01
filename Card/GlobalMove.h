@@ -1,5 +1,6 @@
 #pragma once
 #include <vector>
+#include <sstream>
 
 #include "Move.h"
 #include "Player.h"
@@ -30,6 +31,8 @@ private:
 	void definitionTops();
 
 	void actionsAfterMove(const short startAmountDefenderCard);
+
+	bool showDeckWinnerPlayer(Player* choicePlayer);
 
 	void showTopWinnerPlayer();
 

@@ -118,13 +118,14 @@ std::string GameHelper::getTextForDefendPlayer(std::vector<Card*>* allAttackCard
 	return textAttackCards.str();
 }
 
-bool GameHelper::boolMenu(const std::string& nameMenu, const std::string& textQueation, std::vector<ItemMenu<bool>> items)
+bool GameHelper::boolMenu(const std::string& nameMenu, const std::string& textQueation, std::vector<ItemMenu<bool>> items, bool clearConsole)
 {
 	Menu<bool> menuConfirmationChoice
 	{
 		nameMenu,
 		textQueation,
-		move(items)
+		move(items),
+		clearConsole
 	};
 
 	return menuConfirmationChoice[menuConfirmationChoice.setChoicePlayer()];
@@ -168,17 +169,21 @@ std::vector<ItemMenu<Card*>> GameHelper::getItemMenuCard(const Array<Card*>* dec
 
 	if(lastTextChoice.empty() == false)
 		tempItemMenu.push_back({ lastTextChoice, std::make_shared<Card*>(nullptr) });
+
+	return tempItemMenu;
 }
 
 std::vector<ItemMenu<Player*>> GameHelper::getItemMenuPlayer(const Array<Player*>* players, const std::string& lastTextChoice)
 {
-	std::vector<ItemMenu<Card*>> tempItemMenu;
+	std::vector<ItemMenu<Player*>> tempItemMenu;
 
 	int size = players->getSize();
 
 	for (int i{ 0 }; i < size; i++)
-		tempItemMenu.push_back({ (*players)[i]->getName(), std::make_shared<Card*>((*players)[i]) });
+		tempItemMenu.push_back({ (*players)[i]->getName(), std::make_shared<Player*>((*players)[i]) });
 
 	if (lastTextChoice.empty() == false)
-		tempItemMenu.push_back({ lastTextChoice, std::make_shared<Card*>(nullptr) });
+		tempItemMenu.push_back({ lastTextChoice, std::make_shared<Player*>(nullptr) });
+
+	return tempItemMenu;
 }
